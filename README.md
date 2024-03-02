@@ -3,7 +3,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 # Getting Started
 
 ## Project-Requirements
-### node version -- v18.17.0
+### node version -- v18.17.0 to v20
 ### npm version -- 9.6.7
 ### react native cli -- 0.70.10
 
