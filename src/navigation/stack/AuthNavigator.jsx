@@ -21,7 +21,7 @@ const AuthNavigator = () => {
       <AuthStack.Screen
         name="ResumeUpload"
         component={ResumeUpload}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <AuthStack.Screen
         name="SuccessModal"
