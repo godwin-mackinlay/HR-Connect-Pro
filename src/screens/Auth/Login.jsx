@@ -2,9 +2,22 @@ import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {Text, TextInput, Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useFormik} from 'formik';
+import {loginValidate} from '../../utils/validate';
 
 const Login = ({navigation}) => {
   const [hide, setHide] = useState(true);
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: loginValidate,
+    onSubmit: async data => {
+      console.log(data);
+    },
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.section}>
@@ -15,15 +28,34 @@ const Login = ({navigation}) => {
       </View>
       <Text style={styles.headerText}>Login</Text>
       <TextInput
-        label={<Text>Email</Text>}
+        label={
+          <Text
+            style={
+              formik.errors.email && formik.touched.email
+                ? styles.errorLabel
+                : styles.label
+            }>
+            Email
+          </Text>
+        }
         mode="outlined"
-        outlineStyle={styles.input}
+        value={formik.values.email}
+        onChangeText={formik.handleChange('email')}
+        onBlur={formik.handleBlur('email')}
+        outlineStyle={
+          formik.errors.email && formik.touched.email
+            ? styles.errorInput
+            : styles.input
+        }
         style={styles.bodyInput}
         right={
           <TextInput.Icon
-            icon={() => (
-              <Icon name="checkmark-outline" color={'#2358FB'} size={26} />
-            )}
+            // eslint-disable-next-line react/no-unstable-nested-components
+            icon={() =>
+              !formik.errors.email && formik.touched.email ? (
+                <Icon name="checkmark-outline" color={'#2358FB'} size={26} />
+              ) : null
+            }
             size={26}
             style={styles.inputIcon}
             color={'#2358FB'}
@@ -31,10 +63,27 @@ const Login = ({navigation}) => {
         }
       />
       <TextInput
-        label={<Text>Password</Text>}
+        label={
+          <Text
+            style={
+              formik.errors.password && formik.touched.password
+                ? styles.errorLabel
+                : styles.label
+            }>
+            Password
+          </Text>
+        }
         mode="outlined"
+        value={formik.values.password}
+        onChangeText={formik.handleChange('password')}
+        onBlur={formik.handleBlur('password')}
         secureTextEntry={hide ? true : false}
-        outlineStyle={styles.input}
+        outlineStyle={
+          formik.errors.password && formik.touched.password
+            ? styles.errorInput
+            : styles.input
+        }
+        st
         style={styles.bodyInput}
         right={
           <TextInput.Icon
@@ -47,7 +96,10 @@ const Login = ({navigation}) => {
         }
       />
       <Text style={styles.forgot}>Forgot Password?</Text>
-      <Button mode="contained" style={styles.button}>
+      <Button
+        mode="contained"
+        style={styles.button}
+        onPress={formik.handleSubmit}>
         Login
       </Button>
       <View style={styles.footer}>
@@ -92,6 +144,12 @@ const styles = StyleSheet.create({
     fontSize: 42,
     textAlign: 'center',
   },
+  label: {
+    color: '#B7AFA4',
+  },
+  errorLabel: {
+    color: 'red',
+  },
   input: {
     borderRadius: 30,
     marginLeft: 12,
@@ -99,12 +157,19 @@ const styles = StyleSheet.create({
     borderColor: '#B7AFA4',
     borderWidth: 1,
   },
+  errorInput: {
+    borderRadius: 30,
+    marginLeft: 12,
+    marginRight: 12,
+    borderColor: 'red',
+    borderWidth: 1,
+  },
   bodyInput: {
     paddingStart: 12,
     marginTop: 15,
     marginBottom: 15,
     height: 51,
-    fontSize: 18,
+    fontSize: 16,
     backgroundColor: '#fff',
   },
   inputIcon: {
