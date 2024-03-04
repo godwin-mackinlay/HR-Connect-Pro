@@ -1,9 +1,11 @@
-import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image, TouchableOpacity, Alert} from 'react-native';
 import React, {useState} from 'react';
 import {Text, TextInput, Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useFormik} from 'formik';
 import {loginValidate} from '../../utils/validate';
+import userData from '../../data/users.json';
+import FormInput from '../../components/Input/FormInput';
 
 const Login = ({navigation}) => {
   const [hide, setHide] = useState(true);
@@ -14,10 +16,20 @@ const Login = ({navigation}) => {
     },
     validationSchema: loginValidate,
     onSubmit: async data => {
-      console.log(data);
+      const emailValid = userData.find(user => user.email === data.email);
+      const passwordValid = userData.find(
+        user => user.password === data.password,
+      );
+      if (!emailValid) {
+        Alert.alert('email is not found');
+      } else if (!passwordValid) {
+        Alert.alert('password is not found');
+      } else {
+        navigation.navigate('ResumeUpload');
+      }
     },
   });
-
+  console.log(userData);
   return (
     <View style={styles.container}>
       <View style={styles.section}>
@@ -27,40 +39,13 @@ const Login = ({navigation}) => {
         />
       </View>
       <Text style={styles.headerText}>Login</Text>
-      <TextInput
-        label={
-          <Text
-            style={
-              formik.errors.email && formik.touched.email
-                ? styles.errorLabel
-                : styles.label
-            }>
-            Email
-          </Text>
-        }
-        mode="outlined"
+      <FormInput
+        label="Eamil"
         value={formik.values.email}
         onChangeText={formik.handleChange('email')}
         onBlur={formik.handleBlur('email')}
-        outlineStyle={
-          formik.errors.email && formik.touched.email
-            ? styles.errorInput
-            : styles.input
-        }
-        style={styles.bodyInput}
-        right={
-          <TextInput.Icon
-            // eslint-disable-next-line react/no-unstable-nested-components
-            icon={() =>
-              !formik.errors.email && formik.touched.email ? (
-                <Icon name="checkmark-outline" color={'#2358FB'} size={26} />
-              ) : null
-            }
-            size={26}
-            style={styles.inputIcon}
-            color={'#2358FB'}
-          />
-        }
+        error={formik.errors.email}
+        touched={formik.touched.email}
       />
       <TextInput
         label={
@@ -83,7 +68,6 @@ const Login = ({navigation}) => {
             ? styles.errorInput
             : styles.input
         }
-        st
         style={styles.bodyInput}
         right={
           <TextInput.Icon
@@ -95,6 +79,9 @@ const Login = ({navigation}) => {
           />
         }
       />
+      <Text style={{color: 'red', textAlign: 'center'}}>
+        {formik.errors.password}
+      </Text>
       <Text style={styles.forgot}>Forgot Password?</Text>
       <Button
         mode="contained"

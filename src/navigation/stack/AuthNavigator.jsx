@@ -16,7 +16,7 @@ const AuthNavigator = () => {
       <AuthStack.Screen
         name="Register"
         component={Register}
-        options={{headerShown: true}}
+        options={{headerShown: true, statusBarColor: '#0050D1'}}
       />
       <AuthStack.Screen
         name="ResumeUpload"
