@@ -10,6 +10,7 @@ const ForgotPassword = ({navigation}) => {
       header: () => (
         <BackHeader navigation={navigation} title="Forgot Password" />
       ),
+      statusBarColor: '#00296B',
     });
   }, [navigation]);
 

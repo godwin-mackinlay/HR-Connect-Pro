@@ -30,7 +30,7 @@ export default MatchCard;
 const styles = StyleSheet.create({
   card: {
     padding: 12,
-    backgroundColor: '#00296B',
+    backgroundColor: '#0050D1',
     marginLeft: 6,
     marginRight: 6,
   },

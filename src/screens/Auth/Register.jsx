@@ -10,6 +10,7 @@ const Register = ({navigation}) => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
       header: () => <BackHeader navigation={navigation} title="Back" />,
+      statusBarColor: '#00296B',
     });
   }, [navigation]);
 

@@ -10,7 +10,7 @@ const Status = ({navigation}) => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
       header: () => <BackHeader navigation={navigation} title="My Status" />,
-      statusBarColor: '#0050D1',
+      statusBarColor: '#00296B',
     });
   }, [navigation]);
   const timeLineData = [
