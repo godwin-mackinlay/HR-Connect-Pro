@@ -1,0 +1,26 @@
+[
+  {
+    "id": "job_1",
+    "job_title": "UI Designer",
+    "type": "Remote",
+    "place": "US"
+  },
+  {
+    "id": "job_2",
+    "job_title": "Graphics Designer",
+    "type": "onSite",
+    "place": "India"
+  },
+  {
+    "id": "job_3",
+    "job_title": "React Js",
+    "type": "Remote",
+    "place": "Uk"
+  },
+  {
+    "id": "job_4",
+    "job_title": "Spring Boot",
+    "type": "Remote",
+    "place": "India"
+  }
+]

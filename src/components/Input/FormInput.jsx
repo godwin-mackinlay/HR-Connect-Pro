@@ -42,7 +42,7 @@ const FormInput = ({
           />
         }
       />
-      <Text style={{color: 'red', textAlign: 'center'}}>{error}</Text>
+      <Text style={{color: 'red', marginLeft :12}}>{error}</Text>
     </>
   );
 };
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   bodyInput: {
     paddingStart: 12,
-    marginTop: 15,
+    marginTop: 0,
     marginBottom: 15,
     height: 51,
     fontSize: 16,

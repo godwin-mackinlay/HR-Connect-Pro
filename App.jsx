@@ -5,7 +5,7 @@ import SplashScreen from 'react-native-splash-screen';
 import HomeNavigator from './src/navigation/stack/HomeNavigator';
 
 function App() {
-  const myuser = 'mackinlay';
+  const myuser = 'macinlay';
 
   useEffect(() => {
     SplashScreen.hide();

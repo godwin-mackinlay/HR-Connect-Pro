@@ -6,6 +6,7 @@ import {useFormik} from 'formik';
 import {loginValidate} from '../../utils/validate';
 import userData from '../../data/users.json';
 import FormInput from '../../components/Input/FormInput';
+import KeyboardView from '../../components/Container/KeyboardView';
 
 const Login = ({navigation}) => {
   const [hide, setHide] = useState(true);
@@ -31,7 +32,7 @@ const Login = ({navigation}) => {
   });
   console.log(userData);
   return (
-    <View style={styles.container}>
+    <KeyboardView>
       <View style={styles.section}>
         <Image
           source={require('../../assets/images/logo.png')}
@@ -109,7 +110,7 @@ const Login = ({navigation}) => {
           <Image source={require('../../assets/images/apple.png')} />
         </TouchableOpacity>
       </View>
-    </View>
+    </KeyboardView>
   );
 };
 
@@ -130,9 +131,11 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 42,
     textAlign: 'center',
+    fontFamily: 'Inter-Bold',
   },
   label: {
     color: '#B7AFA4',
+    fontFamily: 'Inter-Regular',
   },
   errorLabel: {
     color: 'red',
@@ -153,7 +156,7 @@ const styles = StyleSheet.create({
   },
   bodyInput: {
     paddingStart: 12,
-    marginTop: 15,
+    marginTop: 2,
     marginBottom: 15,
     height: 51,
     fontSize: 16,
@@ -173,6 +176,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     color: '#2358FB',
     fontSize: 15,
+    fontFamily: 'Inter-Regular',
   },
   footer: {
     flexDirection: 'row',
@@ -182,11 +186,13 @@ const styles = StyleSheet.create({
   footer_inner: {
     color: '#000',
     fontSize: 15,
+    fontFamily: 'Inter-Regular',
   },
   footer_btn: {
     color: '#2358FB',
     marginLeft: 6,
     fontSize: 15,
+    fontFamily: 'Inter-Medium',
   },
   conditonText: {
     textAlign: 'center',
