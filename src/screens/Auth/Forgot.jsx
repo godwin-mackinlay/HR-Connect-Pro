@@ -12,6 +12,7 @@ const ForgotPassword = ({navigation}) => {
       ),
     });
   }, [navigation]);
+  
   return (
     <View style={styles.container}>
       <View style={styles.viewTextContainer}>

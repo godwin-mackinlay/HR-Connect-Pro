@@ -8,7 +8,7 @@ const BackHeader = ({navigation, title}) => {
   return (
     <>
       <LinearGradient
-        colors={['#0050D1', '#00296B', '#0050D1', '#00296B']}
+        colors={['#0050D1', '#0050D1', '#0050D1', '#0050D1']}
         start={{x: 12, y: 0}}
         end={{x: 12, y: 0}}
         style={{height: 52}}>
@@ -39,5 +39,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 21,
+    fontFamily: 'Inter-Regular',
   },
 });

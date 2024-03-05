@@ -7,6 +7,7 @@ import Jobs from '../../data/job.json';
 import JobCard from '../../components/Card/JobCard';
 import HorizontalList from '../../components/List/HorizontalList';
 import MatchCard from '../../components/Card/MatchCard';
+
 const Dashboard = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({

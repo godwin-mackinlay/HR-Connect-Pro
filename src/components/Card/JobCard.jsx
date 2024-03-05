@@ -3,10 +3,11 @@ import {StyleSheet, View, Image} from 'react-native';
 import {Text, Divider, Button, Card} from 'react-native-paper';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const JobCard = ({job, navigation}) => {
+const JobCard = ({job, key, navigation}) => {
   return (
     <View style={styles.container}>
       <Card
+        key={key}
         style={styles.line}
         onPress={() => navigation.navigate('Hiring', {job: job})}>
         <View style={styles.inputContainer}>
@@ -40,7 +41,10 @@ const JobCard = ({job, navigation}) => {
         <Button mode="" style={styles.Button1} elevation={8}>
           Save For Later
         </Button>
-        <Button mode="contained" style={styles.Button2}>
+        <Button
+          mode="contained"
+          style={styles.Button2}
+          onPress={() => navigation.navigate('Status')}>
           Apply
         </Button>
       </View>
