@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   line: {
     borderWidth: 1,
     borderColor: '#8E8A8A',
+    backgroundColor: '#fff',
     marginLeft: 4,
     marginRight: 4,
     paddingTop: 10,

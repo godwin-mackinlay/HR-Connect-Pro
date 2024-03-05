@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Avatar, Card, Chip} from 'react-native-paper';
+import {Avatar, Card, Text} from 'react-native-paper';
 
 const MatchCard = ({navigation, job}) => {
   return (
@@ -16,9 +16,9 @@ const MatchCard = ({navigation, job}) => {
         <Text variant="titleLarge" style={styles.cardTitle}>
           {job.job_title}
         </Text>
-        <Chip style={styles.chip} onPress={() => console.log('Pressed')}>
-          {`\u25CF ${job.type}`}
-        </Chip>
+        <Text style={styles.chip} onPress={() => console.log('Pressed')}>
+          {job.type}
+        </Text>
         <Text style={styles.place}>{job.place}</Text>
       </Card.Content>
     </Card>
@@ -49,13 +49,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Medium',
     color: '#fff',
     textAlign: 'center',
+    fontSize: 18,
+    flex: 0.8,
+    flexWrap: 'wrap',
   },
   chip: {
-    width: 100,
     marginBottom: 8,
     fontFamily: 'Inter-Bold',
     marginLeft: 'auto',
     marginRight: 'auto',
+    backgroundColor: '#fff',
+    padding: 3,
+    borderRadius: 6,
+    fontSize: 12,
   },
   place: {
     marginLeft: 12,
