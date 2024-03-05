@@ -12,7 +12,7 @@ const ForgotPassword = ({navigation}) => {
       ),
     });
   }, [navigation]);
-  
+
   return (
     <View style={styles.container}>
       <View style={styles.viewTextContainer}>
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     marginBottom: 70,
   },
   bodyInput: {
-    borderRadius: 2,
     borderRadius: 50,
     marginLeft: 30,
     marginRight: 40,

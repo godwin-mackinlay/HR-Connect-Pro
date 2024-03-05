@@ -2,10 +2,9 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Avatar, Card, Chip} from 'react-native-paper';
 
-const MatchCard = ({navigation, job, index}) => {
+const MatchCard = ({navigation, job}) => {
   return (
     <Card
-      key={index}
       style={styles.card}
       onPress={() => navigation.navigate('Hiring', {job: job})}>
       <Avatar.Image

@@ -3,11 +3,10 @@ import {StyleSheet, View, Image} from 'react-native';
 import {Text, Divider, Button, Card} from 'react-native-paper';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const JobCard = ({job, key, navigation}) => {
+const JobCard = ({job, navigation}) => {
   return (
     <View style={styles.container}>
       <Card
-        key={key}
         style={styles.line}
         onPress={() => navigation.navigate('Hiring', {job: job})}>
         <View style={styles.inputContainer}>

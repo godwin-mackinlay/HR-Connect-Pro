@@ -56,7 +56,7 @@ const Dashboard = ({navigation}) => {
       </View>
       <HorizontalList>
         {Jobs.map((item, index) => (
-          <MatchCard job={item} index={index} navigation={navigation} />
+          <MatchCard job={item} key={index} navigation={navigation} />
         ))}
       </HorizontalList>
       <View style={styles.textContainer}>
