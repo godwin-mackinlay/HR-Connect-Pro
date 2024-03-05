@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   Keyboard,
   StyleSheet,
@@ -12,10 +11,7 @@ const KeyboardView = ({children, style}) => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={[
-          {flex: 1, backgroundColor: '#fff', marginLeft: 12, marginRight: 12},
-          style,
-        ]}>
+        style={[styles.container, style]}>
         {children}
       </ScrollView>
     </TouchableWithoutFeedback>
@@ -27,6 +23,8 @@ export default KeyboardView;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: theme.colors.background,
+    backgroundColor: '#fff',
+    paddingLeft: 12,
+    paddingRight: 12,
   },
 });
