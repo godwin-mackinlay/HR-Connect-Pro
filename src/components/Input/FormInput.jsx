@@ -42,7 +42,9 @@ const FormInput = ({
           />
         }
       />
-      <Text style={{color: 'red', marginLeft :12}}>{error}</Text>
+      {error && touched ? (
+        <Text style={{color: 'red', marginLeft: 20}}>{error}</Text>
+      ) : null}
     </>
   );
 };

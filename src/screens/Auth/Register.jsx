@@ -9,7 +9,7 @@ const Register = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
-      header: () => <BackHeader navigation={navigation} />,
+      header: () => <BackHeader navigation={navigation} title="Back" />,
     });
   }, [navigation]);
 

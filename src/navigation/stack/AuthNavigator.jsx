@@ -4,6 +4,7 @@ import Login from '../../screens/Auth/Login';
 import Register from '../../screens/Auth/Register';
 import ResumeUpload from '../../screens/Auth/ResumeUpload';
 import SuccessModal from '../../components/Modal/SuccessModal';
+import ForgotPassword from '../../screens/Auth/Forgot';
 
 const AuthNavigator = () => {
   const AuthStack = createNativeStackNavigator();
@@ -24,6 +25,11 @@ const AuthNavigator = () => {
         name="SuccessModal"
         component={SuccessModal}
         options={{headerShown: true}}
+      />
+      <AuthStack.Screen
+        name="Forgot"
+        component={ForgotPassword}
+        options={{headerShown: true, statusBarColor: '#0050D1'}}
       />
     </AuthStack.Navigator>
   );

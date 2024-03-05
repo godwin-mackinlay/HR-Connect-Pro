@@ -1,10 +1,12 @@
 import {StyleSheet, View, TouchableOpacity, ScrollView} from 'react-native';
 import {Avatar, Button, Card, Text, Chip} from 'react-native-paper';
-
 import React, {useLayoutEffect} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import KeyboardView from '../../components/Container/KeyboardView';
 import Jobs from '../../data/job.json';
+import JobCard from '../../components/Card/JobCard';
+import HorizontalList from '../../components/List/HorizontalList';
+import MatchCard from '../../components/Card/MatchCard';
 const Dashboard = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -51,54 +53,18 @@ const Dashboard = ({navigation}) => {
         <Text style={styles.title}>Best Matches for you</Text>
         <Text style={styles.body}>See All</Text>
       </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <View style={styles.container}>
-          {Jobs.map((item, index) => (
-            <TouchableOpacity
-              activeOpacity={0.6}
-              key={index}
-              style={styles.view}
-              // onPress={() => setCount(index)}
-            >
-              <Card style={{padding: 12, backgroundColor: '#FAC7C4'}}>
-                <Avatar.Image
-                  size={56}
-                  source={require('../../assets/images/Company_logo.png')}
-                  style={{marginBottom: 12}}
-                />
-                <Card.Content style={{height: 120}}>
-                  <Text
-                    variant="titleLarge"
-                    style={{
-                      width: '90%',
-                      marginBottom: 8,
-                      fontFamily: 'Inter-Medium',
-                    }}>
-                    {item.job_title}
-                  </Text>
-                  <Chip
-                    style={{
-                      width: 100,
-                      marginBottom: 8,
-                      fontFamily: 'Inter-Bold',
-                    }}
-                    onPress={() => console.log('Pressed')}>
-                    {`\u25CF ${item.type}`}
-                  </Chip>
-                  <Text
-                    style={{
-                      marginLeft: 12,
-                      fontSize: 16,
-                      fontFamily: 'Inter-Regular',
-                    }}>
-                    {item.place}
-                  </Text>
-                </Card.Content>
-              </Card>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
+      <HorizontalList>
+        {Jobs.map((item, index) => (
+          <MatchCard job={item} index={index} navigation={navigation} />
+        ))}
+      </HorizontalList>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Recommended Jobs</Text>
+        <Text style={styles.body}>See All</Text>
+      </View>
+      {Jobs.map((item, index) => (
+        <JobCard key={index} job={item} navigation={navigation} />
+      ))}
     </KeyboardView>
   );
 };
@@ -108,19 +74,15 @@ export default Dashboard;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    margin: 12,
+    margin: 0,
     position: 'relative',
     bottom: 0,
-  },
-  view: {
-    marginRight: 6,
-    marginLeft: 6,
-    borderRadius: 12,
   },
   textContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 12,
+    marginBottom: 12,
   },
   title: {fontSize: 16, color: '#000', fontFamily: 'Inter-Medium'},
   body: {

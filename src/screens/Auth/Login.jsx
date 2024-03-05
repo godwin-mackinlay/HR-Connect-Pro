@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
       }
     },
   });
-  console.log(userData);
+
   return (
     <KeyboardView>
       <View style={styles.section}>
@@ -80,10 +80,12 @@ const Login = ({navigation}) => {
           />
         }
       />
-      <Text style={{color: 'red', textAlign: 'center'}}>
+      <Text style={{color: 'red', marginLeft: 20}}>
         {formik.errors.password}
       </Text>
-      <Text style={styles.forgot}>Forgot Password?</Text>
+      <Text style={styles.forgot} onPress={() => navigation.navigate('Forgot')}>
+        Forgot Password?
+      </Text>
       <Button
         mode="contained"
         style={styles.button}
