@@ -40,7 +40,7 @@ const Dashboard = ({navigation}) => {
               style={{marginRight: 18}}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Search')}>
             <Icon name="search-outline" color={'#fff'} size={26} />
           </TouchableOpacity>
         </View>
