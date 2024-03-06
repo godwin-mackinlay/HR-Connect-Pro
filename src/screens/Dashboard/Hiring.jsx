@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
+import KeyboardView from '../../components/Container/KeyboardView';
+import BackHeader from '../../components/Header/BackHeader';
 
-function Hiring({route}) {
+function Hiring({navigation, route}) {
   const {job} = route.params;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
+      header: () => (
+        <BackHeader navigation={navigation} title="Back" textAlign="center" />
+      ),
+      statusBarColor: '#00296B',
+    });
+  }, [navigation]);
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <KeyboardView>
       <View style={styles.viewContent}>
         <Text style={styles.labelSmall}>Read the caption</Text>
 
@@ -33,7 +45,7 @@ function Hiring({route}) {
           </Text>
         ))}
       </View>
-    </ScrollView>
+    </KeyboardView>
   );
 }
 
@@ -42,7 +54,6 @@ export default Hiring;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 30,
     backgroundColor: '#fff',
   },
   viewContent: {
@@ -50,6 +61,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'blue',
     borderRadius: 20,
+    marginTop: 16,
   },
   labelSmall: {
     fontSize: 13,

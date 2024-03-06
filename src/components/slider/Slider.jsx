@@ -36,6 +36,12 @@ const slideData = [
     title: 'About',
     desc: 'Dive into the data with our analytics page. Gain valuable insights into your job search progress, track application statuses, and discover trends in the job market to stay ahead of the competition. Welcome to a smarter way of navigating your career path with HR Connect Pro!',
   },
+  {
+    id: 5,
+    img: require('../../assets/images/congrats.gif'),
+    title: 'Congratulations!',
+    desc: 'Dive into the data with our analytics page. Gain valuable insights into your job search progress, track application statuses, and discover trends in the job market to stay ahead of the competition. Welcome to a smarter way of navigating your career path with HR Connect Pro!',
+  },
 ];
 
 const Slider = () => {
@@ -71,7 +77,7 @@ const Slider = () => {
     // Scroll to the next slide
     if (flatListRef.current && nextIndex < slideData.length) {
       flatListRef.current.scrollToIndex({index: nextIndex});
-    } else if (index === 3) {
+    } else if (index === 4) {
       // navigation.navigate('Dashboard')
       navigation.replace('Login');
     }

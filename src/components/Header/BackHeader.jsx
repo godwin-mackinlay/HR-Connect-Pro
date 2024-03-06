@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 21,
-    fontFamily: 'Inter-Regular',
+    fontFamily: 'Poppins-Regular',
+    paddingTop: 8,
   },
 });
