@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
   },
 
   bodyInput: {
-    borderRadius: 2,
     borderRadius: 50,
     marginLeft: 30,
     marginRight: 30,

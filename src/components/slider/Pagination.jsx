@@ -11,7 +11,7 @@ const Pagination = ({data, scrollX, index}) => {
 
         const dotWidth = scrollX.interpolate({
           inputRange,
-          outputRange: [12, 30, 12],
+          outputRange: [12, 12, 12],
           extrapolate: 'clamp',
         });
 
@@ -47,7 +47,7 @@ export default Pagination;
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 80,
+    bottom: 100,
     flexDirection: 'row',
     width: '100%',
     alignItems: 'center',

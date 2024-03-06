@@ -14,15 +14,30 @@ import {useNavigation} from '@react-navigation/native';
 const slideData = [
   {
     id: 1,
-    img: require('../../assets/images/Company_logo.png'),
-    title: 'React is a javascript library',
+    img: require('../../assets/images/slider_0.png'),
+    title: 'Welcome',
+    desc: 'Welcome to HR Connect Pro! Get started on your job search journey with our intuitive job search feature. Find the perfect job that matches your skills and preferences effortlessly',
   },
   {
     id: 2,
-    img: require('../../assets/images/apple.png'),
-    title: 'Angular is a javascript framework',
+    img: require('../../assets/images/slider_1.png'),
+    title: 'About',
+    desc: "HR Connect Pro offers a platform for users to attend mock exams and find relevant jobs through our mobile and web app. Our platform not only provides mock exams but also enhances users' understanding of various topics.",
+  },
+  {
+    id: 3,
+    img: require('../../assets/images/slider_2.png'),
+    title: 'About',
+    desc: 'Say hello to our friendly chatbot! Our AI-powered chatbot is here to assist you every step of the way. Ask questions, get tips, and receive personalized recommendations to enhance your job search experience.',
+  },
+  {
+    id: 4,
+    img: require('../../assets/images/slider_3.png'),
+    title: 'About',
+    desc: 'Dive into the data with our analytics page. Gain valuable insights into your job search progress, track application statuses, and discover trends in the job market to stay ahead of the competition. Welcome to a smarter way of navigating your career path with HR Connect Pro!',
   },
 ];
+
 const Slider = () => {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
@@ -56,9 +71,9 @@ const Slider = () => {
     // Scroll to the next slide
     if (flatListRef.current && nextIndex < slideData.length) {
       flatListRef.current.scrollToIndex({index: nextIndex});
-    } else if (index === 1) {
+    } else if (index === 3) {
       // navigation.navigate('Dashboard')
-      navigation.navigate('SignUp');
+      navigation.replace('Login');
     }
   };
 
@@ -101,13 +116,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#0050D1',
     marginLeft: 16,
     marginRight: 16,
-    marginBottom: 20,
+    marginBottom: 30,
   },
   buttonText: {
     color: '#fff',
     textAlign: 'center',
     lineHeight: 50,
     fontSize: 20,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
   },
 });
