@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text, TextInput, Button} from 'react-native-paper';
 import BackHeader from '../../components/Header/BackHeader';
+import FormInput from '../../components/Input/FormInput';
 
 const ForgotPassword = ({navigation}) => {
   useLayoutEffect(() => {
@@ -21,12 +22,7 @@ const ForgotPassword = ({navigation}) => {
           Please enter your email address. You will receive a link to create a
           new password.
         </Text>
-        <TextInput
-          label={<Text>email</Text>}
-          mode="outlined"
-          style={styles.bodyInput}
-          outlineStyle={{borderRadius: 30}}
-        />
+        <FormInput label="Email" value={''} />
         <Button mode="contained" style={styles.button}>
           submit
         </Button>

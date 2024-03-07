@@ -7,6 +7,7 @@ import Jobs from '../../data/job.json';
 import JobCard from '../../components/Card/JobCard';
 import HorizontalList from '../../components/List/HorizontalList';
 import MatchCard from '../../components/Card/MatchCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Dashboard = ({navigation}) => {
   useLayoutEffect(() => {
@@ -32,7 +33,8 @@ const Dashboard = ({navigation}) => {
       // eslint-disable-next-line react/no-unstable-nested-components
       headerRight: () => (
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={async () => AsyncStorage.removeItem('my-email')}>
             <Icon
               name="filter-outline"
               color={'#fff'}
@@ -45,6 +47,7 @@ const Dashboard = ({navigation}) => {
           </TouchableOpacity>
         </View>
       ),
+      headerLeft: () => null,
     });
   }, [navigation]);
 

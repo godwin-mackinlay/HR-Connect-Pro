@@ -1,7 +1,7 @@
 import {StyleSheet, View, Image, TouchableOpacity, Alert} from 'react-native';
 import React, {useState} from 'react';
 import {Text, TextInput, Button} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useFormik} from 'formik';
 import {loginValidate} from '../../utils/validate';
 import userData from '../../data/users.json';
@@ -26,7 +26,8 @@ const Login = ({navigation}) => {
       } else if (!passwordValid) {
         Alert.alert('password is not found');
       } else {
-        navigation.navigate('ResumeUpload');
+        navigation.replace('Home');
+        await AsyncStorage.setItem('my-email', data.email);
       }
     },
   });
@@ -41,7 +42,7 @@ const Login = ({navigation}) => {
       </View>
       <Text style={styles.headerText}>Login</Text>
       <FormInput
-        label="Eamil"
+        label="Email"
         value={formik.values.email}
         onChangeText={formik.handleChange('email')}
         onBlur={formik.handleBlur('email')}
@@ -80,9 +81,12 @@ const Login = ({navigation}) => {
           />
         }
       />
-      <Text style={{color: 'red', marginLeft: 20}}>
-        {formik.errors.password}
-      </Text>
+      {formik.errors.password && formik.touched.password ? (
+        <Text style={{color: 'red', marginLeft: 20}}>
+          {formik.errors.password}
+        </Text>
+      ) : null}
+
       <Text style={styles.forgot} onPress={() => navigation.navigate('Forgot')}>
         Forgot Password?
       </Text>
@@ -134,9 +138,10 @@ const styles = StyleSheet.create({
     fontSize: 42,
     textAlign: 'center',
     fontFamily: 'Inter-Bold',
+    marginBottom: 16,
   },
   label: {
-    color: '#B7AFA4',
+    color: '#333',
     fontFamily: 'Inter-Regular',
   },
   errorLabel: {
@@ -170,12 +175,13 @@ const styles = StyleSheet.create({
   button: {
     marginLeft: 12,
     marginRight: 12,
-    backgroundColor: '#2358FB',
+    backgroundColor: '#0050D1',
   },
   forgot: {
     marginLeft: 'auto',
     marginRight: 12,
     marginBottom: 12,
+    marginTop: 12,
     color: '#2358FB',
     fontSize: 15,
     fontFamily: 'Inter-Regular',

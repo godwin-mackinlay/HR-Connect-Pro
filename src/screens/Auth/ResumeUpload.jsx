@@ -35,6 +35,11 @@ function ResumeUpload({navigation}) {
           Dropbox
         </Button>
       </View>
+      <Button
+        mode="contained"
+        style={{width: '80%', backgroundColor: '#0050D1', marginTop: 30}}>
+        Submit
+      </Button>
     </View>
   );
 }
@@ -61,7 +66,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     padding: 10,
     borderRadius: 8,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'blue',
   },
 });

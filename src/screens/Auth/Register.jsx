@@ -112,6 +112,6 @@ const styles = StyleSheet.create({
   button: {
     marginLeft: 12,
     marginRight: 12,
-    backgroundColor: '#2358FB',
+    backgroundColor: '#0050D1',
   },
 });

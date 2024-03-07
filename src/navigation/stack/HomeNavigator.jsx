@@ -13,7 +13,7 @@ const HomeNavigator = () => {
       <HomeStack.Screen
         name="Dashboard"
         component={Dashboard}
-        options={{headerShown: true}}
+        options={{headerShown: true, headerBackVisible: false}}
       />
       <HomeStack.Screen
         name="Search"
