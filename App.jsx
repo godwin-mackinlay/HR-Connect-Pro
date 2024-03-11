@@ -4,6 +4,7 @@ import AuthNavigator from './src/navigation/stack/AuthNavigator';
 import SplashScreen from 'react-native-splash-screen';
 import HomeNavigator from './src/navigation/stack/HomeNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import TabNavigation from './src/navigation/tab/TabNavigation';
 
 function App() {
   const [user, setUser] = useState('');
@@ -29,7 +30,7 @@ function App() {
   return (
     <>
       <NavigationContainer>
-        {user ? <HomeNavigator /> : <AuthNavigator />}
+        {user ? <TabNavigation /> : <AuthNavigator />}
       </NavigationContainer>
     </>
   );

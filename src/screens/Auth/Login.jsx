@@ -26,7 +26,7 @@ const Login = ({navigation}) => {
       } else if (!passwordValid) {
         Alert.alert('password is not found');
       } else {
-        navigation.replace('Home');
+        navigation.replace('tab');
         await AsyncStorage.setItem('my-email', data.email);
       }
     },

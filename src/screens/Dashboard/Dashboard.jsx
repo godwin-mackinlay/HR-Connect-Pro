@@ -19,8 +19,6 @@ const Dashboard = ({navigation}) => {
             fontSize: 20,
             color: '#fff',
             fontFamily: 'Inter-Bold',
-            paddingBottom: 22,
-            paddingTop: 22,
           }}>
           Dashboard
         </Text>
@@ -28,6 +26,7 @@ const Dashboard = ({navigation}) => {
       statusBarColor: '#00296B',
       headerStyle: {
         backgroundColor: '#00296B',
+        height: 60,
       },
 
       // eslint-disable-next-line react/no-unstable-nested-components
@@ -52,7 +51,7 @@ const Dashboard = ({navigation}) => {
   }, [navigation]);
 
   return (
-    <KeyboardView>
+    <KeyboardView style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.title}>Best Matches for you</Text>
         <Text style={styles.body}>See All</Text>
@@ -77,10 +76,7 @@ export default Dashboard;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    margin: 0,
-    position: 'relative',
-    bottom: 0,
+    marginBottom: 50,
   },
   textContainer: {
     flexDirection: 'row',
