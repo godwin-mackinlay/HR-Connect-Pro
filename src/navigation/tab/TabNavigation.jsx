@@ -4,19 +4,14 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Dashboard from '../../screens/Dashboard/Dashboard';
 import HomeNavigator from '../stack/HomeNavigator';
+import ChatSplash from '../../screens/Chat/ChatSplash';
+import ChatBot from '../../screens/Chat/ChatBot';
+import ChatNavigator from '../stack/ChatNavigator';
 
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-function ChatScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text>Assessment!</Text>
     </View>
   );
 }
@@ -65,8 +60,12 @@ function TabNavigation() {
         component={HomeNavigator}
         options={{headerShown: false}}
       />
-      <Tab.Screen name="Chat" component={SettingsScreen} />
-      <Tab.Screen name="Assessment" component={ChatScreen} />
+      <Tab.Screen
+        name="Chat"
+        component={ChatNavigator}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen name="Assessment" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }

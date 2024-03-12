@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import AuthNavigator from './src/navigation/stack/AuthNavigator';
 import SplashScreen from 'react-native-splash-screen';
-import HomeNavigator from './src/navigation/stack/HomeNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TabNavigation from './src/navigation/tab/TabNavigation';
+import {LogBox} from 'react-native';
+LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 function App() {
   const [user, setUser] = useState('');
