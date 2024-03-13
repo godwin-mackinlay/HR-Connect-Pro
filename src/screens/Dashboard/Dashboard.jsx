@@ -75,7 +75,7 @@ export default Dashboard;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 50,
+    // marginBottom: 50,
   },
   textContainer: {
     flexDirection: 'row',

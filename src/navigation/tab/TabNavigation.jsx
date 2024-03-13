@@ -8,7 +8,23 @@ import ChatSplash from '../../screens/Chat/ChatSplash';
 import ChatBot from '../../screens/Chat/ChatBot';
 import ChatNavigator from '../stack/ChatNavigator';
 
-function SettingsScreen() {
+function AssessmentScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Assessment!</Text>
+    </View>
+  );
+}
+
+function ProfileScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Assessment!</Text>
+    </View>
+  );
+}
+
+function AnalysisScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Assessment!</Text>
@@ -26,46 +42,71 @@ function TabNavigation() {
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
           if (route.name === 'Dashboard') {
-            iconName = focused ? 'grid-outline' : 'grid-outline';
+            iconName = focused ? 'home-outline' : 'home-outline';
           } else if (route.name === 'Chat') {
             iconName = focused
               ? 'chatbox-ellipses-outline'
               : 'chatbox-ellipses-outline';
           } else if (route.name === 'Assessment') {
+            iconName = focused
+              ? 'document-text-outline'
+              : 'document-text-outline';
+          } else if (route.name === 'Analysis') {
             iconName = focused ? 'analytics-outline' : 'analytics-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person-outline' : 'person-outline';
           }
-          return <Icon name={iconName} size={size} color={color} />;
+          return (
+            <Icon
+              name={iconName}
+              size={size}
+              color={color}
+              style={{
+                backgroundColor: focused ? '#fff' : 'transparent',
+                padding: 4,
+                borderRadius: 30,
+              }}
+            />
+          );
         },
-        tabBarActiveTintColor: 'tomato',
+        tabBarHideOnKeyboard: true,
+        tabBarActiveTintColor: '#FA7902',
         tabBarInactiveTintColor: '#fff',
         tabBarStyle: {
           position: 'absolute',
-          backgroundColor: '#00296B',
-          borderColor: '#000',
-          borderWidth: 0,
+          backgroundColor: '#0050D1',
+          borderColor: '#fff',
+          borderWidth: 1,
           elevation: 4,
-          height: 55,
-          borderRadius: 0,
-          bottom: 0, //5
-          marginLeft: 0, // 12
-          marginRight: 0, // 12
+          height: 70,
+          borderRadius: 50,
+          bottom: 10, //5
+          marginLeft: 12, // 12
+          marginRight: 12, // 12
         },
         tabBarLabelStyle: {
           color: navigation.isFocused() ? 'tomato' : '#fff',
           fontFamily: 'Poppins-Medium',
+          marginBottom: 6,
+        },
+        tabBarIconStyle: {
+          marginTop: 10,
         },
       })}>
       <Tab.Screen
         name="Dashboard"
         component={HomeNavigator}
-        options={{headerShown: false}}
+        options={{headerShown: false, title: 'Home'}}
       />
+      <Tab.Screen name="Assessment" component={AssessmentScreen} />
       <Tab.Screen
         name="Chat"
         component={ChatNavigator}
         options={{headerShown: false}}
       />
-      <Tab.Screen name="Assessment" component={SettingsScreen} />
+
+      <Tab.Screen name="Analysis" component={AnalysisScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }

@@ -36,17 +36,6 @@ const JobCard = ({job, navigation}) => {
           <Text style={styles.locationText}>Full Time</Text>
         </View>
       </Card>
-      <View style={styles.Button}>
-        <Button mode="" style={styles.Button1} elevation={8}>
-          Save For Later
-        </Button>
-        <Button
-          mode="contained"
-          style={styles.Button2}
-          onPress={() => navigation.navigate('Status')}>
-          Apply
-        </Button>
-      </View>
     </View>
   );
 };
@@ -55,7 +44,7 @@ export default JobCard;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    marginBottom: 22,
   },
   line: {
     borderWidth: 1,
