@@ -52,7 +52,7 @@ function TabNavigation() {
         },
         tabBarLabelStyle: {
           color: navigation.isFocused() ? 'tomato' : '#fff',
-          fontFamily: 'Poppins-Bold',
+          fontFamily: 'Poppins-Medium',
         },
       })}>
       <Tab.Screen

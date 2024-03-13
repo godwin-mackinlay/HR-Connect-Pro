@@ -7,10 +7,8 @@ const ChatSplash = ({navigation}) => {
   return (
     <KeyboardView>
       <View style={styles.container}>
-        <Text variant="titleLarge" style={styles.viewTitle}>
-          Your AI Assistant
-        </Text>
-        <Text variant="titleLarge" style={styles.viewTitle1}>
+        <Text style={styles.viewTitle}>Your AI Assistant</Text>
+        <Text variant="titleMedium" style={styles.viewTitle1}>
           Using this software, you can ask your questions and receive articles
           using an artificial intelligence assistant
         </Text>
@@ -39,27 +37,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
   },
   viewTitle: {
-    fontWeight: '700',
-    color: '#757575',
+    marginTop: 22,
+    fontFamily: 'Poppins-Bold',
+    color: '#00296B',
     fontSize: 30,
     textAlign: 'center',
   },
   viewTitle1: {
-    marginTop: 20,
-    fontSize: 18,
-    paddingRight: 20,
-    paddingLeft: 20,
+    marginTop: 12,
+    fontSize: 16,
     color: '#757575',
+    fontFamily: 'Poppins-Regular',
     textAlign: 'center',
   },
   viewImage: {
-    marginTop: 12,
+    marginTop: 22,
   },
   ViewButton: {
-    marginTop: 20,
+    marginTop: 30,
     width: '90%',
   },
   ViewButton1: {
@@ -68,8 +65,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#fff',
     fontSize: 20,
   },
 });

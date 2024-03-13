@@ -9,11 +9,12 @@ import Status from '../../screens/Dashboard/Status';
 const HomeNavigator = () => {
   const HomeStack = createNativeStackNavigator();
   return (
-    <HomeStack.Navigator screenOptions={{headerShown: false}}>
+    <HomeStack.Navigator
+      screenOptions={{headerShown: false, statusBarColor: '#0050D1'}}>
       <HomeStack.Screen
         name="Dashboard"
         component={Dashboard}
-        options={{headerShown: true}}
+        options={{headerShown: true, statusBarColor: '#0050D1'}}
       />
       <HomeStack.Screen
         name="Search"

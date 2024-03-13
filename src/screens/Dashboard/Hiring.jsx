@@ -13,14 +13,11 @@ function Hiring({navigation, route}) {
       header: () => (
         <BackHeader navigation={navigation} title="Back" textAlign="center" />
       ),
-      statusBarColor: '#00296B',
     });
   }, [navigation]);
   return (
     <KeyboardView>
       <View style={styles.viewContent}>
-        <Text style={styles.labelSmall}>Read the caption</Text>
-
         <View style={styles.imageContainer}>
           <Image source={{uri: job.image}} style={styles.image} />
         </View>
@@ -57,55 +54,53 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   viewContent: {
-    alignItems: 'flex-end',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: '#002B70',
     borderRadius: 20,
     marginTop: 16,
   },
   labelSmall: {
     fontSize: 13,
-    fontWeight: 'bold',
-    textAlign: 'right',
-    paddingRight: 50,
+    fontFamily: 'Poppins-Bold',
     paddingTop: 20,
   },
   imageContainer: {
-    alignItems: 'flex-end',
-    marginTop: 30,
+    marginTop: 12,
+    marginBottom: 12,
   },
   image: {
-    width: 200,
-    height: 100,
-    marginRight: 40,
+    width: 80,
+    height: 80,
   },
   inputText: {
-    fontWeight: '900',
-    fontSize: 100,
-    marginRight: 40,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 50,
   },
   textDraw: {
     fontSize: 18,
-    fontWeight: '900',
-    paddingRight: 80,
-    paddingBottom: 60,
+    fontFamily: 'Poppins-Medium',
+    paddingBottom: 12,
   },
   inputDes: {
-    paddingTop: 20,
-    paddingBottom: 10,
-    fontWeight: '900',
-    fontSize: 30,
+    paddingTop: 12,
+    padding: 6,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 18,
+    textDecorationLine: 'underline',
   },
   headLine: {
-    fontSize: 18,
-    color: '#a9a9a9',
-    paddingBottom: 15,
+    fontSize: 15,
+    color: '#000',
+    paddingBottom: 12,
+    fontFamily: 'Poppins-Regular',
   },
   inputReq: {
-    fontSize: 18,
-    color: '#a9a9a9',
-    paddingBottom: 15,
-    padding: 10,
+    fontFamily: 'Poppins-Regular',
+    fontSize: 15,
+    color: '#000',
+    paddingBottom: 12,
+    padding: 6,
   },
   int: {
     flexDirection: 'row',

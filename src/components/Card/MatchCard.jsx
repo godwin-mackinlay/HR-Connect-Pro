@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {Avatar, Card, Text} from 'react-native-paper';
 
@@ -7,19 +7,22 @@ const MatchCard = ({navigation, job}) => {
     <Card
       style={styles.card}
       onPress={() => navigation.navigate('Hiring', {job: job})}>
-      <Avatar.Image
-        size={56}
+      <Image
+        width={60}
+        height={60}
         source={{uri: job.image}}
         style={styles.cardImage}
       />
       <Card.Content style={styles.content}>
-        <Text variant="titleLarge" style={styles.cardTitle}>
+        <Text variant="titleLarge" style={styles.cardTitle} numberOfLines={1}>
           {job.job_title}
         </Text>
         <Text style={styles.chip} onPress={() => console.log('Pressed')}>
           {job.type}
         </Text>
-        <Text style={styles.place}>{job.place}</Text>
+        <Text style={styles.place} numberOfLines={1}>
+          ({job.place})
+        </Text>
       </Card.Content>
     </Card>
   );
@@ -30,44 +33,34 @@ export default MatchCard;
 const styles = StyleSheet.create({
   card: {
     padding: 12,
-    backgroundColor: '#0050D1',
+    backgroundColor: '#F9BBBB',
     marginLeft: 6,
     marginRight: 6,
   },
   content: {
-    height: 120,
-    width: 200,
+    height: 80,
+    width: 120,
   },
   cardImage: {
-    marginBottom: 12,
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 50,
   },
   cardTitle: {
     width: '100%',
-    marginBottom: 8,
-    fontFamily: 'Inter-Medium',
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 18,
-    flex: 0.8,
-    flexWrap: 'wrap',
+    fontFamily: 'Poppins-Medium',
+    color: '#000',
+    fontSize: 16,
   },
   chip: {
-    marginBottom: 8,
-    fontFamily: 'Inter-Bold',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    backgroundColor: '#fff',
-    padding: 3,
+    fontFamily: 'Poppins-Bold',
     borderRadius: 6,
     fontSize: 12,
   },
   place: {
-    marginLeft: 12,
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    color: '#fff',
-    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+    color: '#000',
   },
 });

@@ -18,14 +18,13 @@ const Dashboard = ({navigation}) => {
           style={{
             fontSize: 20,
             color: '#fff',
-            fontFamily: 'Inter-Bold',
+            fontFamily: 'Poppins-Medium',
           }}>
           Dashboard
         </Text>
       ),
-      statusBarColor: '#00296B',
       headerStyle: {
-        backgroundColor: '#00296B',
+        backgroundColor: '#0050D1',
         height: 60,
       },
 
@@ -84,11 +83,11 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 12,
   },
-  title: {fontSize: 16, color: '#000', fontFamily: 'Inter-Medium'},
+  title: {fontSize: 16, color: '#000', fontFamily: 'Poppins-Medium'},
   body: {
     fontSize: 14,
     color: '#2A69E5',
-    fontFamily: 'Inter-Regular',
+    fontFamily: 'Poppins-Regular',
     textDecorationLine: 'underline',
   },
 });

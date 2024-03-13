@@ -1,9 +1,57 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useLayoutEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {Dialogflow_V2} from 'react-native-dialogflow';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const ChatBot = () => {
+const ChatBot = ({navigation}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
+      headerTitle: () => (
+        <View style={{flexDirection: 'row'}}>
+          <Icon
+            name="chatbubble-ellipses-outline"
+            color={'#fff'}
+            size={26}
+            style={{marginTop: 1, marginRight: 12}}
+          />
+          <Text
+            style={{
+              fontSize: 20,
+              color: '#fff',
+              fontFamily: 'Poppins-Bold',
+            }}>
+            ChatBot
+          </Text>
+        </View>
+      ),
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor: '#0050D1',
+        height: 60,
+      },
+
+      // eslint-disable-next-line react/no-unstable-nested-components
+      headerRight: () => (
+        <View style={{flexDirection: 'row'}}>
+          {/* <TouchableOpacity>
+            <Icon
+              name="filter-outline"
+              color={'#fff'}
+              size={26}
+              style={{marginRight: 18}}
+            />
+          </TouchableOpacity> */}
+          <TouchableOpacity>
+            <Icon name="volume-high-outline" color={'#fff'} size={26} />
+          </TouchableOpacity>
+        </View>
+      ),
+      // headerLeft: () => null,
+    });
+  }, [navigation]);
+
   Dialogflow_V2.setConfiguration(
     'newchat@newagent-iedh.iam.gserviceaccount.com',
     '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDc+NRLQ8eeG8n8\nQNXA1XbdkICAomMOiGiVGR04p7wxchUCexQkCmWn3YXBkl6ChZL2bSbtUF+LTg5r\nCk0JpOXqKaXSTqPZs0MS/eY70X7gWIk3tiLDfCrqCSeOqRx7DuOWovLr64q4tJZ8\nhzdS52sYUGfTjsV3zlx0gcUk+C3QF3IWHv8PkygA0IhO2tDCmFca9mQYolLqFvhu\nZuaC8EWo0SOtYOQuLelzrmg/aPoam/WuIKqzb/JQr7ssghnSyoy3OxUtbHPgxtO/\nJhMJaY7Lj3qo2uzdVHzmfm+o75yiEq1SC5xwrdsIhxDUklYpW416y/3dCfSDa/5/\nGAnA6bIzAgMBAAECggEACVPI2kMf1PEFWKF/+aYeYKyDJWrgADK1KhNSTsbobwng\nEH0Tf5Cfc94qPDPVIMX0oHRBCrleyb7fZZictzB/sp+pa97SlGjjBuqIDQmtxQMt\nCkNPj62Dvjc+tTXhiYw6V8HEZpLzBb2RsJX15DOigKHm5WDcaE83Sy+txlQM0wC7\nml9wNRCRJ7MGbGfg0NsCCBGDqZQ6jmReXqpq8oQHfxUGtpCUfP1irCRXyElOCBwM\niML5XRpJ+jCp8xyC11++deFqFigpMCIlJeLWd3yXMZzDUPEitK4NR//s3aDbhrJ2\nFCaY1/2ikDVwXkef+VSaafs5lGt08hf2PJ4bFuaLwQKBgQDxGBd20MII17huU72u\n/jWUnhA8wDhkpV1fz47mBgpuP1gVVAU0KA2l7EJkXzfCm7KECmJDKNaIAFkLjcnM\n6G0o2ni0hicisdglUD3nOmaM9gabR1DLORSRC7iFaPtqkKuOOKoyNUwBmYZFDmFo\nGTo974ox9zt/bWWSRgxXeIQikwKBgQDqokFoy+bJcVJEinaRZYQ1Wvp52kpE5C44\nX9fClXwwZUKZWmE8M7rO4NC85mpQ7+W2qX74o5YzJU8tX6A2l8OKRVeuNjlg05Az\nmOQg29a9hRbmMdbJxntGUwbcUUD9k5wLhCwcmN3FxILTJE5lcgQnLDg+X456P43H\nsUlq7tHV4QKBgQDP3h608Y6qQxwf+5GK5GDcD2AekPjORgl4xyMEzmaF4ZWXZgbK\njlIeIdKoabRQ1R8YWz+Xegll3y7nGEvKoQck9yClPRlW/5FFsqZ8y8yJcsIFdXqC\njWdfG4TvebFzkuJnUBHmEi/DHVQ4DAsNztp5diNnqysgVfkCIeUYMa9zgwKBgDik\nVOAEoUEuDysmtfrho+nxfZge/2DkKNhJIuABkEpql4pHzENpRYadtSZ1BWNmlnDj\nOBiz/RV5w0Rz2kxzlKvzk3gl9PIQALbECQZ5q7xyvZVyoKRzOt0+O+DB6MuOb9RD\n4xZAPQF6MA7iq95HiQMf5LACB3Yxk3uKq+uZnaRhAoGBAM4AdbwjWPgZzvdosfXP\njEJtbqMxw84AuZVVdvWpICFNNIEcFCkjONHie+1qHOe7zejipsSOY3D9mf7iaGau\nb6Q4CgIanqVRbNZdIgszqT9p4eyjZVPSaWNGL/TVL4+Adf1nC7J12naeF6yO17vJ\n9aXcqkVRUCL0cZkqsX9TYVKk\n-----END PRIVATE KEY-----\n',

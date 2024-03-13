@@ -8,7 +8,7 @@ const BackHeader = ({navigation, title}) => {
   return (
     <>
       <LinearGradient
-        colors={['#00296B', '#00296B', '#00296B', '#00296B']}
+        colors={['#0050D1', '#00296B', '#00296B', '#0050D1']}
         start={{x: 12, y: 0}}
         end={{x: 12, y: 0}}
         style={{height: 52}}>
