@@ -7,6 +7,7 @@ const JobCard = ({job, navigation}) => {
   return (
     <View style={styles.container}>
       <Card
+        elevation={0}
         style={styles.line}
         onPress={() => navigation.navigate('Hiring', {job: job})}>
         <View style={styles.inputContainer}>
@@ -21,15 +22,25 @@ const JobCard = ({job, navigation}) => {
                 30K<Text style={styles.redText}>/Month</Text>
               </Text>
             </View>
+            <Text style={styles.text}>12 hour ago</Text>
           </View>
-        </View>
-        <View style={styles.hour}>
-          <Text style={styles.text}>12 hour ago</Text>
+          <View style={styles.Button}>
+            <FontAwesome5
+              name="bookmark"
+              size={25}
+              color="#000"
+              style={styles.book}
+            />
+            <Button mode="contained" style={styles.Button2}>
+              Apply
+            </Button>
+            {/* <Button mode="" style={styles.Button1}>Save For Later</Button> */}
+          </View>
         </View>
         <Divider />
         <View style={styles.locationContainer}>
           <FontAwesome5 name="map-marker-alt" size={20} color="#000" />
-          <Text style={styles.locationText}>{job.place}</Text>
+          <Text style={styles.locationText}>Pune</Text>
           <FontAwesome5 name="user" size={20} color="#000" />
           <Text style={styles.locationText}>Fresher</Text>
           <FontAwesome5 name="tint" size={20} color="#000" />
@@ -44,22 +55,19 @@ export default JobCard;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 22,
+    marginBottom: 30,
   },
   line: {
     borderWidth: 1,
     borderColor: '#8E8A8A',
-    backgroundColor: '#fff',
-    marginLeft: 4,
-    marginRight: 4,
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 0,
-    borderTopEndRadius: 40,
+    marginLeft: 2,
+    marginRight: 2,
+    paddingTop: 16,
+    paddingLeft: 12,
+    paddingRight: 12,
+    borderRadius: 35,
     height: 180,
+    backgroundColor: '#fff',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -67,13 +75,16 @@ const styles = StyleSheet.create({
   imageview: {
     width: 70,
     height: 70,
+    borderRadius: 0,
   },
   textView: {
     paddingLeft: 10,
   },
   textView1: {
-    paddingBottom: 10,
+    paddingBottom: 5,
     paddingTop: 7,
+    fontSize: 18,
+    fontFamily: 'Poppins-Medium',
   },
   iconContainer: {
     flexDirection: 'row',
@@ -83,17 +94,21 @@ const styles = StyleSheet.create({
     paddingLeft: 7,
     marginTop: -4,
   },
+
   redText: {
-    color: '#dcdcdc',
+    color: '#000',
     fontSize: 13,
+    fontFamily: 'Poppins-Medium',
   },
-  hour: {
-    alignItems: 'flex-end',
-    paddingRight: 20,
+  book: {
+    paddingLeft: 50,
+    paddingBottom: 25,
   },
   text: {
-    color: '#dcdcdc',
+    color: '#000',
+    paddingTop: 10,
     paddingBottom: 10,
+    fontFamily: 'Poppins-Regular',
   },
   locationContainer: {
     flexDirection: 'row',
@@ -105,22 +120,19 @@ const styles = StyleSheet.create({
   locationText: {
     paddingRight: 25,
     marginLeft: 8,
-    fontSize: 16,
+    fontSize: 13,
+    fontFamily: 'Poppins-Regular',
   },
   Button: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: -16,
-  },
-  Button1: {
-    backgroundColor: 'white',
+    paddingTop: 11,
+    paddingLeft: 8,
+    fontFamily: 'Poppins-Medium',
+    marginLeft: 'auto',
   },
   Button2: {
-    borderRadius: 1,
-    borderBottomEndRadius: 15,
-    borderBottomStartRadius: 15,
-    backgroundColor: '#0050D1',
-    marginRight: 0,
-    color: 'white',
+    borderRadius: 10,
+    backgroundColor: '#00296B',
+    color: '#fff',
+    fontFamily: 'Poppins-Medium',
   },
 });
