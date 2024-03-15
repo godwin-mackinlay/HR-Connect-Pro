@@ -102,7 +102,7 @@ function TabNavigation() {
       <Tab.Screen
         name="Chat"
         component={ChatNavigator}
-        options={{headerShown: false}}
+        options={{headerShown: false, tabBarStyle: {display: 'none'}}}
       />
 
       <Tab.Screen name="Analysis" component={AnalysisScreen} />

@@ -5,7 +5,7 @@ import KeyboardView from '../../components/Container/KeyboardView';
 
 const ChatSplash = ({navigation}) => {
   return (
-    <KeyboardView>
+    <View style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.viewTitle}>Your AI Assistant</Text>
         <Text variant="titleMedium" style={styles.viewTitle1}>
@@ -26,7 +26,7 @@ const ChatSplash = ({navigation}) => {
           </Button>
         </View>
       </View>
-    </KeyboardView>
+    </View>
   );
 };
 
@@ -39,14 +39,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   viewTitle: {
-    marginTop: 22,
     fontFamily: 'Poppins-Bold',
     color: '#00296B',
     fontSize: 30,
     textAlign: 'center',
   },
   viewTitle1: {
-    marginTop: 12,
+    marginTop: 2,
     fontSize: 16,
     color: '#757575',
     fontFamily: 'Poppins-Regular',
@@ -61,6 +60,8 @@ const styles = StyleSheet.create({
   },
   ViewButton1: {
     padding: 6,
+    paddingLeft: 16,
+    paddingRight: 16,
     backgroundColor: '#00296B',
     borderRadius: 30,
   },

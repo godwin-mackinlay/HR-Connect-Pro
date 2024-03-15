@@ -116,7 +116,7 @@ const ChatBot = ({navigation}) => {
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: '#fff', marginBottom: 55}}>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <GiftedChat
         quickReplyTextStyle={{color: '#000'}}
         optionTintColor="#000"

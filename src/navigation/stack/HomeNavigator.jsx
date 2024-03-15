@@ -5,6 +5,7 @@ import Hiring from '../../screens/Dashboard/Hiring';
 import Dashboard from '../../screens/Dashboard/Dashboard';
 import Feedback from '../../screens/Dashboard/Feedback';
 import Status from '../../screens/Dashboard/Status';
+import Filter from '../../screens/Dashboard/Filter';
 
 const HomeNavigator = () => {
   const HomeStack = createNativeStackNavigator();
@@ -19,6 +20,11 @@ const HomeNavigator = () => {
       <HomeStack.Screen
         name="Search"
         component={Search}
+        options={{headerShown: true}}
+      />
+      <HomeStack.Screen
+        name="Filter"
+        component={Filter}
         options={{headerShown: true}}
       />
       <HomeStack.Screen

@@ -32,7 +32,10 @@ const Dashboard = ({navigation}) => {
       headerRight: () => (
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity
-            onPress={async () => AsyncStorage.removeItem('my-email')}>
+            onPress={async () => {
+              // AsyncStorage.removeItem('my-email');
+              navigation.navigate('Filter');
+            }}>
             <Icon
               name="filter-outline"
               color={'#fff'}
