@@ -40,7 +40,7 @@ const SlideItem = ({item}) => {
       />
 
       <View style={styles.content}>
-        <Image source={item.image} style={styles.viewImage} />
+        {/* <Image source={item.image || ''} style={styles.viewImage} /> */}
         <Text style={styles.viewSmall}>{item.desc}</Text>
       </View>
     </View>

@@ -41,7 +41,7 @@ function TabNavigation() {
         // eslint-disable-next-line react/no-unstable-nested-components
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          if (route.name === 'Dashboard') {
+          if (route.name === 'Home') {
             iconName = focused ? 'home-outline' : 'home-outline';
           } else if (route.name === 'Chat') {
             iconName = focused
@@ -94,7 +94,7 @@ function TabNavigation() {
         },
       })}>
       <Tab.Screen
-        name="Dashboard"
+        name="Home"
         component={HomeNavigator}
         options={{headerShown: false, title: 'Home'}}
       />
