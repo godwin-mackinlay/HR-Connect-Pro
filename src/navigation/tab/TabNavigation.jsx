@@ -7,16 +7,10 @@ import HomeNavigator from '../stack/HomeNavigator';
 import ChatSplash from '../../screens/Chat/ChatSplash';
 import ChatBot from '../../screens/Chat/ChatBot';
 import ChatNavigator from '../stack/ChatNavigator';
+import { Button } from 'react-native-paper';
+import Profile from '../../screens/Dashboard/Profile';
 
 function AssessmentScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Assessment!</Text>
-    </View>
-  );
-}
-
-function ProfileScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Assessment!</Text>
@@ -102,11 +96,11 @@ function TabNavigation() {
       <Tab.Screen
         name="Chat"
         component={ChatNavigator}
-        options={{headerShown: false, tabBarStyle: {display: 'none'}}}
+        options={{headerShown: false}}
       />
 
       <Tab.Screen name="Analysis" component={AnalysisScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }

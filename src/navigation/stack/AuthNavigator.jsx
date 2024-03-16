@@ -12,17 +12,14 @@ import TabNavigation from '../tab/TabNavigation';
 const AuthNavigator = () => {
   const AuthStack = createNativeStackNavigator();
   return (
-    <AuthStack.Navigator screenOptions={{headerShown: false}}>
-      <AuthStack.Screen
-        name="Welcome"
-        component={Welcome}
-        options={{statusBarColor: '#0050D1'}}
-      />
+    <AuthStack.Navigator
+      screenOptions={{headerShown: false, statusBarColor: '#0050D1'}}>
+      <AuthStack.Screen name="Welcome" component={Welcome} />
       <AuthStack.Screen name="Login" component={Login} />
       <AuthStack.Screen
         name="Register"
         component={Register}
-        options={{headerShown: true, statusBarColor: '#0050D1'}}
+        options={{headerShown: true}}
       />
       <AuthStack.Screen
         name="ResumeUpload"
@@ -37,7 +34,7 @@ const AuthNavigator = () => {
       <AuthStack.Screen
         name="Forgot"
         component={ForgotPassword}
-        options={{headerShown: true, statusBarColor: '#0050D1'}}
+        options={{headerShown: true}}
       />
       <AuthStack.Screen
         name="tab"

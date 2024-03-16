@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
   },
   ViewButton1: {
     padding: 6,
-    paddingLeft: 16,
-    paddingRight: 16,
+    width: 300,
     backgroundColor: '#00296B',
     borderRadius: 30,
   },

@@ -43,7 +43,10 @@ const FormInput = ({
         }
       />
       {error && touched ? (
-        <Text style={{color: 'red', marginLeft: 20}}>{error}</Text>
+        <Text
+          style={{color: 'red', marginLeft: 20, fontFamily: 'Poppins-Regular'}}>
+          {error}
+        </Text>
       ) : null}
     </>
   );
@@ -72,9 +75,18 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     height: 51,
     fontSize: 16,
+    fontFamily: 'Poppins-Regular',
     backgroundColor: '#fff',
   },
   inputIcon: {
     marginLeft: -16,
+  },
+  label: {
+    color: '#333',
+    fontFamily: 'Poppins-Regular',
+  },
+  errorLabel: {
+    color: 'red',
+    fontFamily: 'Poppins-Regular',
   },
 });

@@ -1,21 +1,22 @@
-import {StyleSheet, View} from 'react-native';
+import {Alert, StyleSheet, View} from 'react-native';
 import {Text, TextInput, Button} from 'react-native-paper';
 import React, {useLayoutEffect} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import BackHeader from '../../components/Header/BackHeader';
+import KeyboardView from '../../components/Container/KeyboardView';
 
 const Register = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
       header: () => <BackHeader navigation={navigation} title="Back" />,
-      statusBarColor: '#00296B',
+      statusBarColor: '#0050D1',
     });
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
+    <KeyboardView>
       <View style={styles.section}>
         <Text style={styles.headerText}>Create Account</Text>
         <TextInput
@@ -64,12 +65,18 @@ const Register = ({navigation}) => {
         />
         <Button
           mode="contained"
+          style={styles.Resume}
+          onPress={() => Alert.alert('cv upload')}>
+          Upload Resume
+        </Button>
+        <Button
+          mode="contained"
           style={styles.button}
           onPress={() => navigation.navigate('ResumeUpload')}>
           Next
         </Button>
       </View>
-    </View>
+    </KeyboardView>
   );
 };
 
@@ -84,8 +91,9 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   headerText: {
-    fontSize: 40,
+    fontSize: 36,
     padding: 15,
+    fontFamily: 'Poppins-Medium',
   },
   input: {
     borderRadius: 30,
@@ -96,7 +104,7 @@ const styles = StyleSheet.create({
   },
   bodyInput: {
     paddingStart: 12,
-    marginBottom: 15,
+    marginBottom: 12,
     height: 51,
     fontSize: 18,
     backgroundColor: '#fff',
@@ -113,5 +121,13 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
     backgroundColor: '#0050D1',
+    marginBottom: 15,
+  },
+  Resume: {
+    marginLeft: 15,
+    width: 'auto',
+    marginRight: 'auto',
+    backgroundColor: '#2F2F42',
+    marginBottom: 15,
   },
 });

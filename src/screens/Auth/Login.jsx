@@ -82,7 +82,8 @@ const Login = ({navigation}) => {
         }
       />
       {formik.errors.password && formik.touched.password ? (
-        <Text style={{color: 'red', marginLeft: 20}}>
+        <Text
+          style={{color: 'red', marginLeft: 22, fontFamily: 'Poppins-Regular'}}>
           {formik.errors.password}
         </Text>
       ) : null}
@@ -93,6 +94,7 @@ const Login = ({navigation}) => {
       <Button
         mode="contained"
         style={styles.button}
+        labelStyle={{fontFamily: 'Poppins-Medium', fontSize: 18}}
         onPress={formik.handleSubmit}>
         Login
       </Button>
@@ -104,7 +106,7 @@ const Login = ({navigation}) => {
           Sign Up
         </Text>
       </View>
-      <Text style={styles.conditonText}>OR</Text>
+      <Text style={styles.conditonText}>_______ (or) _______</Text>
       <View style={styles.social}>
         <TouchableOpacity style={styles.socialBtn}>
           <Image source={require('../../assets/images/google.png')} />
@@ -128,21 +130,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   section: {
-    padding: 30,
+    padding: 20,
   },
   logo: {
     marginLeft: 'auto',
     marginRight: 'auto',
   },
   headerText: {
-    fontSize: 42,
+    fontSize: 36,
     textAlign: 'center',
-    fontFamily: 'Inter-Bold',
-    marginBottom: 16,
+    fontFamily: 'Poppins-Bold',
+    marginBottom: 12,
   },
   label: {
     color: '#333',
-    fontFamily: 'Inter-Regular',
+    fontFamily: 'Poppins-Regular',
   },
   errorLabel: {
     color: 'red',
@@ -176,6 +178,8 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
     backgroundColor: '#0050D1',
+    padding: 4,
+    borderRadius: 30,
   },
   forgot: {
     marginLeft: 'auto',
@@ -183,8 +187,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginTop: 12,
     color: '#2358FB',
-    fontSize: 15,
-    fontFamily: 'Inter-Regular',
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
   },
   footer: {
     flexDirection: 'row',
@@ -194,28 +198,26 @@ const styles = StyleSheet.create({
   footer_inner: {
     color: '#000',
     fontSize: 15,
-    fontFamily: 'Inter-Regular',
+    fontFamily: 'Poppins-Regular',
   },
   footer_btn: {
     color: '#2358FB',
     marginLeft: 6,
     fontSize: 15,
-    fontFamily: 'Inter-Medium',
+    fontFamily: 'Poppins-Medium',
   },
   conditonText: {
     textAlign: 'center',
-    color: '#000',
-    marginTop: 26,
+    color: '#aaa',
+    marginTop: 6,
   },
   social: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: 26,
+    marginTop: 6,
   },
   socialBtn: {
-    borderWidth: 1,
-    borderColor: '#000',
-    paddingTop: 8,
+    paddingTop: 10,
     paddingLeft: 8,
     paddingRight: 8,
   },

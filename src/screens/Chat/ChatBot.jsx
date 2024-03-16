@@ -1,10 +1,14 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {Dialogflow_V2} from 'react-native-dialogflow';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const ChatBot = ({navigation}) => {
+  useEffect(() => {
+    navigation.getParent().setOptions({tabBarStyle: {display: 'none'}});
+  }, []);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
