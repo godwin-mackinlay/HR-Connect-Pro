@@ -14,11 +14,7 @@ const FormInput = ({
   return (
     <>
       <TextInput
-        label={
-          <Text style={error && touched ? styles.errorLabel : styles.label}>
-            {label}
-          </Text>
-        }
+        label={label}
         mode="outlined"
         value={value}
         onChangeText={onChangeText}
@@ -73,8 +69,8 @@ const styles = StyleSheet.create({
     paddingStart: 12,
     marginTop: 0,
     marginBottom: 15,
-    height: 51,
-    fontSize: 16,
+    height: 45,
+    fontSize: 14,
     fontFamily: 'Poppins-Regular',
     backgroundColor: '#fff',
   },

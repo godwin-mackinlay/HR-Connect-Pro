@@ -1763,6 +1763,13 @@
     "prompts" "^2.4.0"
     "semver" "^7.5.2"
 
+"@react-native-community/datetimepicker@^7.6.2", "@react-native-community/datetimepicker@>=6.7.0":
+  "integrity" "sha512-ogZnvCmNG/lGHhEQypqz/mPymiIWD5jv6uKczg/l/aWgiKs1RDPQH1abh+R0I26aKoXmgamJJPuXKeC5eRWtZg=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/datetimepicker/-/datetimepicker-7.6.2.tgz"
+  "version" "7.6.2"
+  dependencies:
+    "invariant" "^2.2.4"
+
 "@react-native-voice/voice@^3.2.4":
   "integrity" "sha512-4i3IpB/W5VxCI7BQZO5Nr2VB0ecx0SLvkln2Gy29cAQKqgBl+1ZsCwUBChwHlPbmja6vA3tp/+2ADQGwB1OhHg=="
   "resolved" "https://registry.npmjs.org/@react-native-voice/voice/-/voice-3.2.4.tgz"
@@ -6195,6 +6202,11 @@
   dependencies:
     "jsrsasign" "^8.0.12"
 
+"react-native-dropdown-select-list@^2.0.5":
+  "integrity" "sha512-TepbcagQVUMB6nLuIlVU2ghRpQHAECOeZWe8K04ymW6NqbKbxuczZSDFfdCiABiiQ2dFD+8Dz65y4K7/uUEqGg=="
+  "resolved" "https://registry.npmjs.org/react-native-dropdown-select-list/-/react-native-dropdown-select-list-2.0.5.tgz"
+  "version" "2.0.5"
+
 "react-native-gifted-chat@^2.4.0":
   "integrity" "sha512-dTpSMH8T4s16dM75oLXiDawpXoVSnApJZY9TWf0jYSRShw++0knnp38hO857zOrt6XhqJKm0JntT0pywYI3rYg=="
   "resolved" "https://registry.npmjs.org/react-native-gifted-chat/-/react-native-gifted-chat-2.4.0.tgz"
@@ -6225,6 +6237,13 @@
   "integrity" "sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA=="
   "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz"
   "version" "2.8.3"
+
+"react-native-modal-datetime-picker@^17.1.0":
+  "integrity" "sha512-jfTwfaCLtBffYbQ+pOGFLM+J5HmUh3vb9rT0JrrQPjxzecdc8pNYreB1c96+mVuq8bDCvaCdIeuEsslTqLJL0Q=="
+  "resolved" "https://registry.npmjs.org/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-17.1.0.tgz"
+  "version" "17.1.0"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-native-paper@^5.12.3":
   "integrity" "sha512-nH1e1pGPE/aOE5YR2GRX7CfMHFA9cAfrAfgCtwL4amJPDZCoVjc5yt2VDiUE1rT+JUfk0qdICMP3UggxvjMgug=="
@@ -6283,7 +6302,7 @@
   "resolved" "https://registry.npmjs.org/react-native-voice/-/react-native-voice-0.3.0.tgz"
   "version" "0.3.0"
 
-"react-native@*", "react-native@^0.0.0-0 || >=0.60 <1.0", "react-native@>= 0.58.2", "react-native@>= 0.60.2", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57.0", "react-native@>=0.61.0", "react-native@0.72.7":
+"react-native@*", "react-native@^0.0.0-0 || >=0.60 <1.0", "react-native@>= 0.58.2", "react-native@>= 0.60.2", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57.0", "react-native@>=0.61.0", "react-native@>=0.65.0", "react-native@0.72.7":
   "integrity" "sha512-dqVFojOO9rOvyFbbM3/v9/GJR355OSuBhEY4NQlMIRc2w0Xch5MT/2uPoq3+OvJ+5h7a8LFAco3fucSffG0FbA=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.72.7.tgz"
   "version" "0.72.7"

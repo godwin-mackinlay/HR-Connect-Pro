@@ -1,4 +1,11 @@
-import {StyleSheet, View, Image, TouchableOpacity, Alert} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  Alert,
+  Keyboard,
+} from 'react-native';
 import React, {useState} from 'react';
 import {Text, TextInput, Button} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -50,16 +57,7 @@ const Login = ({navigation}) => {
         touched={formik.touched.email}
       />
       <TextInput
-        label={
-          <Text
-            style={
-              formik.errors.password && formik.touched.password
-                ? styles.errorLabel
-                : styles.label
-            }>
-            Password
-          </Text>
-        }
+        label={'Password'}
         mode="outlined"
         value={formik.values.password}
         onChangeText={formik.handleChange('password')}
@@ -73,7 +71,10 @@ const Login = ({navigation}) => {
         style={styles.bodyInput}
         right={
           <TextInput.Icon
-            onPress={() => setHide(!hide)}
+            onPress={() => {
+              Keyboard.dismiss();
+              setHide(!hide);
+            }}
             icon={hide ? 'eye-off' : 'eye'}
             size={20}
             style={styles.inputIcon}
@@ -167,8 +168,8 @@ const styles = StyleSheet.create({
     paddingStart: 12,
     marginTop: 2,
     marginBottom: 15,
-    height: 51,
-    fontSize: 16,
+    height: 45,
+    fontSize: 14,
     backgroundColor: '#fff',
   },
   inputIcon: {
