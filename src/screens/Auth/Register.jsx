@@ -1,10 +1,11 @@
 import {Alert, Keyboard, StyleSheet, View} from 'react-native';
 import {Text, TextInput, Button} from 'react-native-paper';
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useCallback, useLayoutEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {SelectList} from 'react-native-dropdown-select-list';
+import DocumentPicker, {types} from 'react-native-document-picker';
 import BackHeader from '../../components/Header/BackHeader';
 import KeyboardView from '../../components/Container/KeyboardView';
 
@@ -13,6 +14,19 @@ const Register = ({navigation}) => {
   const [hide, setHide] = useState(true);
   const [selected, setSelected] = useState('');
   const [role, setRole] = useState('');
+  const [fileResponse, setFileResponse] = useState([]);
+
+  const handleDocumentSelection = useCallback(async () => {
+    try {
+      const response = await DocumentPicker.pick({
+        type: [types.pdf],
+        presentationStyle: 'fullScreen',
+      });
+      setFileResponse(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   const data = [
     {key: '1', value: 'India'},
@@ -161,10 +175,24 @@ const Register = ({navigation}) => {
         <Button
           icon="folder-outline"
           mode="contained"
-          style={styles.Resume}
-          onPress={() => Alert.alert('cv upload')}>
-          Upload Resume
+          style={[
+            styles.Resume,
+            {backgroundColor: fileResponse.length > 0 ? 'green' : 'black'},
+          ]}
+          onPress={() => handleDocumentSelection()}>
+          {fileResponse.length > 0
+            ? 'Upload Successfully!!!'
+            : ' Upload Resume'}
         </Button>
+        {fileResponse.map((file, index) => (
+          <Text
+            key={index.toString()}
+            style={styles.uri}
+            numberOfLines={1}
+            ellipsizeMode={'middle'}>
+            {file?.uri}
+          </Text>
+        ))}
         <Button
           mode="contained"
           style={styles.button}
