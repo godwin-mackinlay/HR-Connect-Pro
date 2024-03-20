@@ -4,6 +4,7 @@ import {TextInput, Text, Divider} from 'react-native-paper';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SearchBar from '../../components/Input/SearchBar';
 import BackHeader from '../../components/Header/BackHeader';
+import TabView from '../../components/Container/TabView';
 
 function Search({navigation}) {
   useLayoutEffect(() => {
@@ -14,7 +15,7 @@ function Search({navigation}) {
     });
   }, [navigation]);
   return (
-    <ScrollView style={styles.container}>
+    <TabView style={styles.container}>
       <SearchBar />
       <View style={styles.inputContainer}>
         <Text variant="bodyLarge" style={styles.bodyLarge}>
@@ -32,7 +33,14 @@ function Search({navigation}) {
             color="#007bff"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>UI/UX Designer</Text>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
+            UI/UX Designer
+          </Text>
         </View>
         <View style={styles.jobItem}>
           <FontAwesome5
@@ -41,7 +49,12 @@ function Search({navigation}) {
             color="#28a745"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
             Software Developer
           </Text>
         </View>
@@ -52,7 +65,14 @@ function Search({navigation}) {
             color="#dc3545"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>Product Manager</Text>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
+            Product Manager
+          </Text>
         </View>
       </View>
 
@@ -64,7 +84,14 @@ function Search({navigation}) {
             color="#007bff"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>UI/UX Designer</Text>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
+            UI/UX Designer
+          </Text>
         </View>
         <View style={styles.jobItem}>
           <FontAwesome5
@@ -73,7 +100,12 @@ function Search({navigation}) {
             color="#28a745"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
             Software Developer
           </Text>
         </View>
@@ -84,7 +116,14 @@ function Search({navigation}) {
             color="#dc3545"
             style={styles.briefcase}
           />
-          <Text style={{width: 80, textAlign: 'center'}}>Product Manager</Text>
+          <Text
+            style={{
+              width: 80,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Regular',
+            }}>
+            Product Manager
+          </Text>
         </View>
       </View>
 
@@ -199,7 +238,7 @@ function Search({navigation}) {
           Front-End Developer
         </Text>
       </View>
-    </ScrollView>
+    </TabView>
   );
 }
 
@@ -207,8 +246,6 @@ export default Search;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     padding: 12,
     // width: 400,
     // marginLeft: 10,
@@ -244,10 +281,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'whitesmoke',
   },
   bodyLarge: {
-    fontWeight: '900',
+    fontFamily: 'Poppins-Bold',
   },
   bodyLarge1: {
     color: 'blue',
+    fontFamily: 'Poppins-Regular',
   },
   joblist: {
     flexDirection: 'row',
@@ -276,17 +314,20 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   ios: {
-    fontSize: 16,
+    fontSize: 14,
     flex: 1,
     marginLeft: 10,
     marginBottom: 20,
+    fontFamily: 'Poppins-Regular',
   },
   icon: {
     marginRight: 10,
+    marginTop: -20,
   },
   inputReq: {
-    fontSize: 15,
-    padding: 5,
+    fontSize: 14,
+    fontFamily: 'Poppins-Medium',
+    padding: 6,
     borderRadius: 10,
     marginBottom: 10,
   },

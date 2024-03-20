@@ -3,11 +3,12 @@ import {
   StyleSheet,
   ScrollView,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-const KeyboardView = ({children, style}) => {
+const FormView = ({children, style}) => {
   const navigation = useNavigation();
   // console.log('navigation', navigation);
   const parent = navigation.getParent();
@@ -59,7 +60,7 @@ const KeyboardView = ({children, style}) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <ScrollView
-        onScroll={onScroll}
+        // onScroll={onScroll}
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
         style={[styles.container, style]}>
@@ -69,7 +70,7 @@ const KeyboardView = ({children, style}) => {
   );
 };
 
-export default KeyboardView;
+export default FormView;
 
 const styles = StyleSheet.create({
   container: {

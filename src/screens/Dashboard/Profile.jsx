@@ -6,9 +6,9 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import {Card, Text} from 'react-native-paper';
+import {Button, Card, Text} from 'react-native-paper';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import KeyboardView from '../../components/Container/KeyboardView';
+import TabView from '../../components/Container/TabView';
 import BackHeader from '../../components/Header/BackHeader';
 import {CommonActions} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -31,149 +31,154 @@ const ProfileCard = ({navigation}) => {
     );
   };
   return (
-    <KeyboardView style={styles.container}>
-      <Card style={styles.container1}>
-        <View style={styles.profileImageContainer}>
-          <TouchableOpacity onPress={() => {}} style={styles.editProfileButton}>
-            <FontAwesome5 name="edit" size={20} color="#007bff" />
-          </TouchableOpacity>
-          <Image
-            source={{
-              uri: 'https://pbs.twimg.com/profile_images/1644061982239387648/4pxcTG5J_400x400.jpg',
-            }}
-            style={styles.profileImage}
-          />
-        </View>
-        <Text style={styles.profileName}>Samarth Patel</Text>
-        <Text style={styles.profileEmail}>samarth@gmail.com</Text>
-      </Card>
+    <TabView>
+      <View style={styles.container}>
+        <Card style={styles.container1}>
+          <View style={styles.profileImageContainer}>
+            <TouchableOpacity
+              onPress={() => {}}
+              style={styles.editProfileButton}>
+              <FontAwesome5 name="edit" size={20} color="#007bff" />
+            </TouchableOpacity>
+            <Image
+              source={{
+                uri: 'https://pbs.twimg.com/profile_images/1644061982239387648/4pxcTG5J_400x400.jpg',
+              }}
+              style={styles.profileImage}
+            />
+          </View>
+          <Text style={styles.profileName}>Samarth Patel</Text>
+          <Text style={styles.profileEmail}>samarth@gmail.com</Text>
+        </Card>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => {}} style={styles.button}>
-          <FontAwesome5
-            name="user-edit"
-            size={20}
-            color="#3081D0"
-            style={styles.icon1}
-          />
-          <Text style={styles.buttonText}>Edit Profile</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="briefcase"
-            size={20}
-            color="#3081D0"
-            style={styles.icon}
-          />
-          <Text style={styles.buttonText}>My Jobs</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="user-tie"
-            size={20}
-            color="#3081D0"
-            style={styles.icon}
-          />
-          <Text style={styles.buttonText}>Switch to recruiter</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="question-circle"
-            size={20}
-            color="#3081D0"
-            style={styles.icon}
-          />
-          <Text style={styles.buttonText}>Help</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="file-alt"
-            size={20}
-            color="#3081D0"
-            style={styles.icon2}
-          />
-          <Text style={styles.buttonText}>My Resume</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="cogs"
-            size={20}
-            color="#3081D0"
-            style={styles.icon3}
-          />
-          <Text style={styles.buttonText}>Account Settings</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={[styles.button, styles.buttonMargin]}>
-          <FontAwesome5
-            name="bell"
-            size={20}
-            color="#3081D0"
-            style={styles.icon}
-          />
-          <Text style={styles.buttonText}>Notification Settings</Text>
-          <FontAwesome5
-            name="chevron-right"
-            size={20}
-            color="#3081D0"
-            style={styles.arrowIcon}
-          />
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => {}} style={styles.button}>
+            <FontAwesome5
+              name="user-edit"
+              size={20}
+              color="#3081D0"
+              style={styles.icon1}
+            />
+            <Text style={styles.buttonText}>Edit Profile</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="briefcase"
+              size={20}
+              color="#3081D0"
+              style={styles.icon}
+            />
+            <Text style={styles.buttonText}>My Jobs</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="user-tie"
+              size={20}
+              color="#3081D0"
+              style={styles.icon}
+            />
+            <Text style={styles.buttonText}>Switch to recruiter</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="question-circle"
+              size={20}
+              color="#3081D0"
+              style={styles.icon}
+            />
+            <Text style={styles.buttonText}>Help</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="file-alt"
+              size={20}
+              color="#3081D0"
+              style={styles.icon2}
+            />
+            <Text style={styles.buttonText}>My Resume</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="cogs"
+              size={20}
+              color="#3081D0"
+              style={styles.icon3}
+            />
+            <Text style={styles.buttonText}>Account Settings</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {}}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="bell"
+              size={20}
+              color="#3081D0"
+              style={styles.icon}
+            />
+            <Text style={styles.buttonText}>Notification Settings</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-    </KeyboardView>
+      <Button onPress={logout}>logout</Button>
+    </TabView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 12,
+    marginTop: 20,
   },
   profileImageContainer: {
     position: 'relative',

@@ -13,7 +13,8 @@ import {useFormik} from 'formik';
 import {loginValidate} from '../../utils/validate';
 import userData from '../../data/users.json';
 import FormInput from '../../components/Input/FormInput';
-import KeyboardView from '../../components/Container/KeyboardView';
+import KeyboardView from '../../components/Container/TabView';
+import FormView from '../../components/Container/FormView';
 
 const Login = ({navigation}) => {
   const [hide, setHide] = useState(true);
@@ -40,7 +41,7 @@ const Login = ({navigation}) => {
   });
 
   return (
-    <KeyboardView>
+    <FormView>
       <View style={styles.section}>
         <Image
           source={require('../../assets/images/logo.png')}
@@ -119,7 +120,7 @@ const Login = ({navigation}) => {
           <Image source={require('../../assets/images/apple.png')} />
         </TouchableOpacity>
       </View>
-    </KeyboardView>
+    </FormView>
   );
 };
 

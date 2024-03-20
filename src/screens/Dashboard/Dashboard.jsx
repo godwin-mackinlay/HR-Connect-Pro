@@ -2,7 +2,7 @@ import {StyleSheet, View, TouchableOpacity, ScrollView} from 'react-native';
 import {Avatar, Button, Card, Text, Chip} from 'react-native-paper';
 import React, {useLayoutEffect} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import KeyboardView from '../../components/Container/KeyboardView';
+import TabView from '../../components/Container/TabView';
 import Jobs from '../../data/job.json';
 import JobCard from '../../components/Card/JobCard';
 import HorizontalList from '../../components/List/HorizontalList';
@@ -53,7 +53,7 @@ const Dashboard = ({navigation}) => {
   }, [navigation]);
 
   return (
-    <KeyboardView style={styles.container}>
+    <TabView style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.title}>Best Matches for you</Text>
         <Text style={styles.body}>See All</Text>
@@ -70,7 +70,7 @@ const Dashboard = ({navigation}) => {
       {Jobs.map((item, index) => (
         <JobCard key={index} job={item} navigation={navigation} />
       ))}
-    </KeyboardView>
+    </TabView>
   );
 };
 

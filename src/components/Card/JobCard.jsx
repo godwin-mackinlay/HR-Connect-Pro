@@ -55,7 +55,7 @@ export default JobCard;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 30,
+    marginBottom: 10,
   },
   line: {
     borderWidth: 1,

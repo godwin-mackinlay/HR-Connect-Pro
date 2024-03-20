@@ -7,7 +7,7 @@ import HomeNavigator from '../stack/HomeNavigator';
 import ChatSplash from '../../screens/Chat/ChatSplash';
 import ChatBot from '../../screens/Chat/ChatBot';
 import ChatNavigator from '../stack/ChatNavigator';
-import { Button } from 'react-native-paper';
+import {Button} from 'react-native-paper';
 import Profile from '../../screens/Dashboard/Profile';
 
 function AssessmentScreen() {
@@ -57,34 +57,35 @@ function TabNavigation() {
               color={color}
               style={{
                 backgroundColor: focused ? '#fff' : 'transparent',
-                padding: 4,
+                padding: 2,
                 borderRadius: 30,
               }}
             />
           );
         },
         tabBarHideOnKeyboard: true,
+        tabBarScrollEnabled: true,
         tabBarActiveTintColor: '#FA7902',
         tabBarInactiveTintColor: '#fff',
         tabBarStyle: {
           position: 'absolute',
           backgroundColor: '#0050D1',
           borderColor: '#fff',
-          borderWidth: 1,
+          borderWidth: 0,
           elevation: 4,
-          height: 70,
-          borderRadius: 50,
-          bottom: 10, //5
-          marginLeft: 12, // 12
-          marginRight: 12, // 12
+          height: 60,
+          borderRadius: 0,
+          bottom: 0, //5
+          marginLeft: 0, // 12
+          marginRight: 0, // 12
         },
         tabBarLabelStyle: {
           color: navigation.isFocused() ? 'tomato' : '#fff',
           fontFamily: 'Poppins-Medium',
-          marginBottom: 6,
+          marginBottom: 2,
         },
         tabBarIconStyle: {
-          marginTop: 10,
+          marginTop: 5,
         },
       })}>
       <Tab.Screen

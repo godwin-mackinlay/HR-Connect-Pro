@@ -20,7 +20,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {FieldArray, Formik} from 'formik';
 import * as Yup from 'yup';
-import KeyboardView from '../../components/Container/KeyboardView';
+import KeyboardView from '../../components/Container/TabView';
 import BackHeader from '../../components/Header/BackHeader';
 
 const validationSchema = Yup.object().shape({

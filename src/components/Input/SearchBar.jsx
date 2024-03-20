@@ -17,7 +17,7 @@ export default function SearchBar() {
   return (
     <View style={styles.con}>
       <View style={styles.searchForm}>
-        <Icon name="search" size={20} color="#ccc" style={styles.icon} />
+        <Icon name="search" size={20} color="#fff" style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder="Search items"
@@ -31,7 +31,7 @@ export default function SearchBar() {
         <Icon
           name="map-marker"
           size={20}
-          color="#ccc"
+          color="#fff"
           style={[styles.icon, {paddingLeft: 22}]}
         />
         <TextInput
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     paddingLeft: 60,
+    fontFamily: 'Poppins-Regular',
   },
   icon: {
     position: 'absolute',

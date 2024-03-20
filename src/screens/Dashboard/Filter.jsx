@@ -3,7 +3,7 @@ import {List, Text, Checkbox, Button} from 'react-native-paper';
 
 import React, {useLayoutEffect} from 'react';
 import BackHeader from '../../components/Header/BackHeader';
-import KeyboardView from '../../components/Container/KeyboardView';
+import TabView from '../../components/Container/TabView';
 
 const Filter = ({navigation}) => {
   const [checked, setChecked] = React.useState(false);
@@ -14,7 +14,7 @@ const Filter = ({navigation}) => {
     });
   }, [navigation]);
   return (
-    <KeyboardView>
+    <TabView>
       <List.AccordionGroup expandedId={'1'}>
         <List.Accordion
           title="Job Type"
@@ -91,7 +91,7 @@ const Filter = ({navigation}) => {
           </List.Accordion>
         </View>
       </List.AccordionGroup>
-    </KeyboardView>
+    </TabView>
   );
 };
 

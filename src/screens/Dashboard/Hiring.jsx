@@ -1,7 +1,7 @@
 import React, {useLayoutEffect} from 'react';
 import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
-import KeyboardView from '../../components/Container/KeyboardView';
+import KeyboardView from '../../components/Container/TabView';
 import BackHeader from '../../components/Header/BackHeader';
 
 function Hiring({navigation, route}) {

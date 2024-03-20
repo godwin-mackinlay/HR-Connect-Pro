@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import {Text, Divider, Button, Icon} from 'react-native-paper';
-import KeyboardView from '../../components/Container/KeyboardView';
+import KeyboardView from '../../components/Container/TabView';
 
 const ChatSplash = ({navigation}) => {
   return (

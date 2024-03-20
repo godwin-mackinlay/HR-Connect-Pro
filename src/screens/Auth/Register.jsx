@@ -7,7 +7,8 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {SelectList} from 'react-native-dropdown-select-list';
 import DocumentPicker, {types} from 'react-native-document-picker';
 import BackHeader from '../../components/Header/BackHeader';
-import KeyboardView from '../../components/Container/KeyboardView';
+import KeyboardView from '../../components/Container/TabView';
+import FormView from '../../components/Container/FormView';
 
 const Register = ({navigation}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -67,7 +68,7 @@ const Register = ({navigation}) => {
   }, [navigation]);
 
   return (
-    <KeyboardView>
+    <FormView>
       <View style={styles.section}>
         <Text style={styles.headerText}>Create Account</Text>
         <TextInput
@@ -200,7 +201,7 @@ const Register = ({navigation}) => {
           Next
         </Button>
       </View>
-    </KeyboardView>
+    </FormView>
   );
 };
 
