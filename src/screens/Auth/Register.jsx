@@ -196,7 +196,7 @@ const Register = ({navigation}) => {
         <Button
           mode="contained"
           style={styles.button}
-          onPress={() => navigation.navigate('ResumeUpload')}>
+          onPress={() => navigation.navigate('Education')}>
           Next
         </Button>
       </View>

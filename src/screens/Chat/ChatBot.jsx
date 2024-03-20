@@ -3,6 +3,7 @@ import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {Dialogflow_V2} from 'react-native-dialogflow';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {renderSend} from '../../components/Input/ChatInput';
 
 const ChatBot = ({navigation}) => {
   useEffect(() => {
@@ -123,8 +124,17 @@ const ChatBot = ({navigation}) => {
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <GiftedChat
         quickReplyTextStyle={{color: '#000'}}
+        quickReplyStyle={{
+          borderRadius: 30,
+          borderWidth: 3,
+          marginLeft: 12,
+          marginRight: 12,
+        }}
         optionTintColor="#000"
         messages={messages}
+        renderSend={renderSend}
+        scrollToBottom={true}
+        alwaysShowSend={true}
         showAvatarForEveryMessage
         onSend={newMessages => onSend(newMessages)}
         user={{

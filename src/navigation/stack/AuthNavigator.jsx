@@ -2,7 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../../screens/Auth/Login';
 import Register from '../../screens/Auth/Register';
-import ResumeUpload from '../../screens/Auth/ResumeUpload';
+import Education from '../../screens/Auth/Education';
 import SuccessModal from '../../components/Modal/SuccessModal';
 import ForgotPassword from '../../screens/Auth/Forgot';
 import Welcome from '../../screens/Auth/Welcome';
@@ -22,9 +22,9 @@ const AuthNavigator = () => {
         options={{headerShown: true}}
       />
       <AuthStack.Screen
-        name="ResumeUpload"
-        component={ResumeUpload}
-        options={{headerShown: false}}
+        name="Education"
+        component={Education}
+        options={{headerShown: true}}
       />
       <AuthStack.Screen
         name="SuccessModal"

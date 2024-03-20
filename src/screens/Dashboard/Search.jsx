@@ -1,156 +1,301 @@
-import React from 'react';
-import {StyleSheet, View, Image, ScrollView} from 'react-native';
-import {Text, Button} from 'react-native-paper';
+import React, {useLayoutEffect} from 'react';
+import {StyleSheet, View, ScrollView} from 'react-native';
+import {TextInput, Text, Divider} from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import SearchBar from '../../components/Input/SearchBar';
+import BackHeader from '../../components/Header/BackHeader';
 
-function Search() {
+function Search({navigation}) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
+      header: () => <BackHeader navigation={navigation} title="Back" />,
+      statusBarColor: '#0050D1',
+    });
+  }, [navigation]);
   return (
     <ScrollView style={styles.container}>
+      <SearchBar />
       <View style={styles.inputContainer}>
-        <Text variant="bodyLarge">People</Text>
-        <Text variant="bodyLarge">View All</Text>
+        <Text variant="bodyLarge" style={styles.bodyLarge}>
+          Job Categories
+        </Text>
+        <Text variant="bodyLarge" style={styles.bodyLarge1}>
+          See All
+        </Text>
+      </View>
+      <View style={styles.joblist}>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="pen-nib"
+            size={24}
+            color="#007bff"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>UI/UX Designer</Text>
+        </View>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="laptop-code"
+            size={24}
+            color="#28a745"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>
+            Software Developer
+          </Text>
+        </View>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="briefcase"
+            size={24}
+            color="#dc3545"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>Product Manager</Text>
+        </View>
       </View>
 
-      <View style={styles.inputImgContainer}>
-        <Image
-          source={require('../../assets/images/person.png')}
-          style={styles.image}
+      <View style={styles.joblist}>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="pen-nib"
+            size={24}
+            color="#007bff"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>UI/UX Designer</Text>
+        </View>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="laptop-code"
+            size={24}
+            color="#28a745"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>
+            Software Developer
+          </Text>
+        </View>
+        <View style={styles.jobItem}>
+          <FontAwesome5
+            name="briefcase"
+            size={24}
+            color="#dc3545"
+            style={styles.briefcase}
+          />
+          <Text style={{width: 80, textAlign: 'center'}}>Product Manager</Text>
+        </View>
+      </View>
+
+      <View style={[styles.inputContainer, {marginTop: 20}]}>
+        <Text variant="bodyLarge" style={styles.bodyLarge}>
+          Recent Searches
+        </Text>
+        <Text variant="bodyLarge" style={styles.bodyLarge1}>
+          See All
+        </Text>
+      </View>
+      <View style={styles.recent}>
+        <FontAwesome5
+          name="history"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
         />
-        <Text variant="titleMedium">Anand Shrivastav</Text>
-      </View>
-      <Text variant="titleLarge">
-        .................................................................
-      </Text>
-
-      <View style={styles.inputImgContainer}>
-        <Image
-          source={require('../../assets/images/person.png')}
-          style={styles.image}
+        <Text style={styles.ios}>IOS Developer</Text>
+        <FontAwesome5
+          name="times"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
         />
-        <Text variant="titleMedium">Ajay Shrivastav</Text>
       </View>
-      <Text variant="titleLarge">
-        .................................................................
-      </Text>
+      <Divider />
 
-      <View style={styles.inputImgContainer}>
-        <Image
-          source={require('../../assets/images/person.png')}
-          style={styles.image}
+      <View style={styles.recent}>
+        <FontAwesome5
+          name="history"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
         />
-        <Text variant="titleMedium">Anmol Shrivastav</Text>
+        <Text style={styles.ios}>UI/UX Developer</Text>
+        <FontAwesome5
+          name="times"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
+        />
       </View>
-      <Text variant="titleLarge">
-        .................................................................
-      </Text>
+      <Divider />
 
-      <View style={styles.bioHead}>
-        <Text variant="bodyLarge">Bio</Text>
-        <Text variant="bodyLarge">View All</Text>
+      <View style={styles.recent}>
+        <FontAwesome5
+          name="history"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
+        />
+        <Text style={styles.ios}>IOS Developer</Text>
+        <FontAwesome5
+          name="times"
+          size={20}
+          color="#827F7F"
+          style={styles.icon}
+        />
       </View>
-
-      <View style={styles.text}>
-        <Text variant="labelMedium">
-          Shri Rajesh Patel is a dedicated educator witha passion for fostering
-          innova learning methods.
+      <Divider />
+      <View style={[styles.inputContainer, {marginTop: 20}]}>
+        <Text variant="bodyLarge" style={styles.bodyLarge}>
+          Popular Searches
         </Text>
-        <Text variant="titleLarge">
-          .................................................................
-        </Text>
-
-        <Text variant="labelMedium">
-          Shri Rajesh Patel is a dedicated educator witha passion for fostering
-          innova learning methods.
-        </Text>
-        <Text variant="titleLarge">
-          .................................................................
-        </Text>
-
-        <Text variant="labelMedium">
-          Shri Rajesh Patel is a dedicated educator witha passion for fostering
-          innova learning methods.
-        </Text>
-        <Text variant="titleLarge">
-          .................................................................
+        <Text variant="bodyLarge" style={styles.bodyLarge1}>
+          See All
         </Text>
       </View>
-
-      <View style={styles.bioHead}>
-        <Text variant="bodyLarge">Country</Text>
-        <Text variant="bodyLarge">View All</Text>
-      </View>
-
-      <View style={styles.text}>
-        <Text variant="labelMedium">
-          In Shrilanka, attending a college in the local education system offers
-          a rich diverse academic experience.
+      <View style={styles.int}>
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#f9bbbb'}]}>
+          {' '}
+          IOS Developer
         </Text>
-        <Text variant="titleLarge">
-          .................................................................
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#e1B0FF'}]}>
+          {' '}
+          UI/UX designer
         </Text>
-
-        <Text variant="labelMedium">
-          As an ardent volunteer in local conservation groups, Shriya strives to
-          create positive impact on the environment and society, believing in
-          the power of collective action for a better world.
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#CBF0FB'}]}>
+          Tester
         </Text>
-        <Text variant="titleLarge">
-          .................................................................
+        <Text style={[styles.inputReq, {backgroundColor: '#FFD9C3'}]}>
+          {' '}
+          Product Manager
         </Text>
-
-        <Text variant="labelMedium">
-          I hold a Bachelor's degree in Computer Science from Shri Shankarcharya
-          Group of Institution
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#CBF0FB'}]}>
+          {' '}
+          Software Engineer
         </Text>
-        <Text variant="titleLarge">
-          .................................................................
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#F9BBBB'}]}>
+          Robotics
+        </Text>
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#e1B0FF'}]}>
+          {' '}
+          Back-End Developer
+        </Text>
+        <Text
+          variant="headlineSmall"
+          style={[styles.inputReq, {backgroundColor: '#FFD9C3'}]}>
+          Front-End Developer
         </Text>
       </View>
     </ScrollView>
   );
 }
+
 export default Search;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // marginTop: 80,
-    // alignItems: 'center',
-    // justifyContent: 'center'
+    padding: 12,
+    // width: 400,
+    // marginLeft: 10,
+  },
+  aContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginTop: -5,
+    marginBottom: 10,
+  },
+  searchBar: {
+    flex: 1,
+    fontSize: 15,
+    backgroundColor: '#fff',
+    marginLeft: 10,
+  },
+  location: {
+    flex: 1,
+    fontSize: 15,
+    backgroundColor: '#fff',
+    marginLeft: 10,
   },
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // marginTop :20,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: 'gray',
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: 'whitesmoke',
   },
-  inputImgContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 10,
-    paddingLeft: 17,
-    // paddingBottom:10,
-    // padding: 13,
+  bodyLarge: {
+    fontWeight: '900',
   },
-  image: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-    borderRadius: 50,
+  bodyLarge1: {
+    color: 'blue',
   },
-  bioHead: {
+  joblist: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 15,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: 'gray',
+    marginTop: 25,
   },
-  text: {
-    marginTop: 10,
-    paddingLeft: 10,
-    // paddingRight: 20,
+  jobItem: {
+    alignItems: 'center',
+  },
+  briefcase: {
+    borderWidth: 1,
+    padding: 13,
+    borderRadius: 6,
+    backgroundColor: 'whitesmoke',
+    borderColor: 'whitesmoke',
+    marginBottom: 10,
+  },
+  recent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginTop: 20,
+  },
+  ios: {
+    fontSize: 16,
+    flex: 1,
+    marginLeft: 10,
+    marginBottom: 20,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  inputReq: {
+    fontSize: 15,
+    padding: 5,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  int: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
   },
 });

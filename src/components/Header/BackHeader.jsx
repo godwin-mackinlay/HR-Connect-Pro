@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {Button} from 'react-native-paper';
+import {Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const BackHeader = ({navigation, title}) => {
@@ -11,8 +11,8 @@ const BackHeader = ({navigation, title}) => {
         colors={['#0050D1', '#00296B', '#00296B', '#0050D1']}
         start={{x: 12, y: 0}}
         end={{x: 12, y: 0}}
-        style={{height: 52}}>
-        <Button
+        style={{height: 52, flexDirection: 'row', paddingTop: 6}}>
+        {/* <Button
           textColor="#fff"
           // eslint-disable-next-line react/no-unstable-nested-components
           icon={() => (
@@ -23,7 +23,13 @@ const BackHeader = ({navigation, title}) => {
           labelStyle={styles.buttonText}
           onPress={() => navigation.goBack()}>
           {title}
-        </Button>
+        </Button> */}
+        <TouchableOpacity
+          style={styles.buttonOutline}
+          onPress={() => navigation.goBack()}>
+          <Icon name="chevron-back-outline" color={'#fff'} size={30} />
+        </TouchableOpacity>
+        <Text style={styles.buttonText}>{title}</Text>
       </LinearGradient>
     </>
   );
@@ -33,14 +39,12 @@ export default BackHeader;
 
 const styles = StyleSheet.create({
   buttonOutline: {
-    marginRight: 'auto',
-    flex: 1,
-    justifyContent: 'center',
+    marginLeft: 12,
   },
   buttonText: {
-    fontSize: 21,
+    fontSize: 20,
     fontFamily: 'Poppins-Medium',
-    paddingTop: 8,
-    marginLeft: 60,
+    marginLeft: 2,
+    color: '#fff',
   },
 });
