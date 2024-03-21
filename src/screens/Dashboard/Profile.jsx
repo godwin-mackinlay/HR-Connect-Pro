@@ -23,12 +23,13 @@ const ProfileCard = ({navigation}) => {
 
   const logout = async () => {
     await AsyncStorage.removeItem('my-email');
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [{name: 'Login'}],
-      }),
-    );
+    // navigation.dispatch(
+    //   CommonActions.reset({
+    //     index: 0,
+    //     routes: [{name: 'Login'}],
+    //   }),
+    // );
+    navigation.replace('Login');
   };
   return (
     <TabView>

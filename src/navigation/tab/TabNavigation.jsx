@@ -9,16 +9,9 @@ import ChatBot from '../../screens/Chat/ChatBot';
 import ChatNavigator from '../stack/ChatNavigator';
 import {Button} from 'react-native-paper';
 import Profile from '../../screens/Dashboard/Profile';
+import Analysis from '../../screens/Dashboard/Analysis';
 
 function AssessmentScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Assessment!</Text>
-    </View>
-  );
-}
-
-function AnalysisScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Assessment!</Text>
@@ -100,7 +93,7 @@ function TabNavigation() {
         options={{headerShown: false}}
       />
 
-      <Tab.Screen name="Analysis" component={AnalysisScreen} />
+      <Tab.Screen name="Analysis" component={Analysis} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

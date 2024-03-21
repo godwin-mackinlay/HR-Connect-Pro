@@ -6,7 +6,6 @@ import Education from '../../screens/Auth/Education';
 import SuccessModal from '../../components/Modal/SuccessModal';
 import ForgotPassword from '../../screens/Auth/Forgot';
 import Welcome from '../../screens/Auth/Welcome';
-import HomeNavigator from './HomeNavigator';
 import TabNavigation from '../tab/TabNavigation';
 
 const AuthNavigator = () => {

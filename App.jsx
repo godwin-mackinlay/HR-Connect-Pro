@@ -8,21 +8,21 @@ import {LogBox} from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 function App() {
-  const [user, setUser] = useState('');
+  // const [user, setUser] = useState('');
 
-  const getData = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('my-email');
-      return jsonValue;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const getData = async () => {
+  //   try {
+  //     const jsonValue = await AsyncStorage.getItem('my-email');
+  //     return jsonValue;
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
-  getData().then(data => {
-    console.log('user', data);
-    setUser(data);
-  });
+  // getData().then(data => {
+  //   console.log('user', data);
+  //   setUser(data);
+  // });
 
   useEffect(() => {
     SplashScreen.hide();
@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <NavigationContainer>
-        {user ? <TabNavigation /> : <AuthNavigator />}
+        <AuthNavigator />
       </NavigationContainer>
     </>
   );
