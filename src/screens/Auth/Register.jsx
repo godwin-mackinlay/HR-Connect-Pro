@@ -9,6 +9,7 @@ import DocumentPicker, {types} from 'react-native-document-picker';
 import BackHeader from '../../components/Header/BackHeader';
 import KeyboardView from '../../components/Container/TabView';
 import FormView from '../../components/Container/FormView';
+import {useFormik} from 'formik';
 
 const Register = ({navigation}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -16,6 +17,26 @@ const Register = ({navigation}) => {
   const [selected, setSelected] = useState('');
   const [role, setRole] = useState('');
   const [fileResponse, setFileResponse] = useState([]);
+
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      email: '',
+      password: '',
+      mobile: '',
+      dob: new Date(),
+      role: '',
+      address: '',
+      country: '',
+      state: '',
+      resumeUrl: '',
+    },
+    // validationSchema: loginValidate,
+    onSubmit: async data => {
+      console.log('registerForm', data);
+      navigation.navigate('Education', {registerForm: data});
+    },
+  });
 
   const handleDocumentSelection = useCallback(async () => {
     try {
@@ -72,19 +93,28 @@ const Register = ({navigation}) => {
       <View style={styles.section}>
         <Text style={styles.headerText}>Create Account</Text>
         <TextInput
-          label={<Text>Name</Text>}
+          label="Username"
+          value={formik.values.username}
+          onChangeText={formik.handleChange('username')}
+          onBlur={formik.handleBlur('username')}
           mode="outlined"
           outlineStyle={styles.input}
           style={styles.bodyInput}
         />
         <TextInput
-          label={<Text>Email</Text>}
+          label="Email"
+          value={formik.values.email}
+          onChangeText={formik.handleChange('email')}
+          onBlur={formik.handleBlur('email')}
           mode="outlined"
           outlineStyle={styles.input}
           style={styles.bodyInput}
         />
         <TextInput
-          label={'Password'}
+          label="Password"
+          value={formik.values.password}
+          onChangeText={formik.handleChange('password')}
+          onBlur={formik.handleBlur('password')}
           mode="outlined"
           secureTextEntry={hide ? true : false}
           outlineStyle={styles.input}
@@ -103,7 +133,10 @@ const Register = ({navigation}) => {
           }
         />
         <TextInput
-          label={<Text>Mobile</Text>}
+          label="Mobile"
+          value={formik.values.mobile}
+          onChangeText={formik.handleChange('mobile')}
+          onBlur={formik.handleBlur('mobile')}
           mode="outlined"
           keyboardType="number-pad"
           outlineStyle={styles.input}
@@ -129,8 +162,9 @@ const Register = ({navigation}) => {
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
-          date={new Date()}
-          onConfirm={handleConfirm}
+          date={formik.values.dob}
+          onChange={formik.handleChange('dob')}
+          onConfirm={formik.handleChange('dob')}
           onCancel={hideDatePicker}
         />
         <SelectList
@@ -140,13 +174,16 @@ const Register = ({navigation}) => {
           search={false}
           fontFamily="Poppins-Regular"
           boxStyles={[styles.input, {marginBottom: 12}]}
-          setSelected={val => setRole(val)}
+          setSelected={formik.handleChange('role')}
           data={roleData}
           save="value"
         />
         <TextInput
-          error={true}
-          label={<Text>Address</Text>}
+          error={formik.errors.address && true}
+          label="Address"
+          value={formik.values.address}
+          onChangeText={formik.handleChange('address')}
+          onBlur={formik.handleBlur('address')}
           mode="outlined"
           outlineStyle={styles.input}
           style={styles.bodyInput}
@@ -158,20 +195,19 @@ const Register = ({navigation}) => {
           search={true}
           fontFamily="Poppins-Regular"
           boxStyles={[styles.input, {marginBottom: 12}]}
-          setSelected={val => setSelected(val)}
+          setSelected={formik.handleChange('country')}
           data={data}
           save="value"
         />
-        <SelectList
-          placeholder="State"
-          inputStyles={{color: '#000'}}
-          dropdownTextStyles={{color: '#000'}}
-          search={true}
-          fontFamily="Poppins-Regular"
-          boxStyles={[styles.input, {marginBottom: 12}]}
-          setSelected={val => setSelected(val)}
-          data={data}
-          save="value"
+        <TextInput
+          error={formik.errors.state && true}
+          label="State"
+          value={formik.values.state}
+          onChangeText={formik.handleChange('state')}
+          onBlur={formik.handleBlur('state')}
+          mode="outlined"
+          outlineStyle={styles.input}
+          style={styles.bodyInput}
         />
         <Button
           icon="folder-outline"
@@ -197,7 +233,7 @@ const Register = ({navigation}) => {
         <Button
           mode="contained"
           style={styles.button}
-          onPress={() => navigation.navigate('Education')}>
+          onPress={formik.handleSubmit}>
           Next
         </Button>
       </View>

@@ -10,14 +10,7 @@ import ChatNavigator from '../stack/ChatNavigator';
 import {Button} from 'react-native-paper';
 import Profile from '../../screens/Dashboard/Profile';
 import Analysis from '../../screens/Dashboard/Analysis';
-
-function AssessmentScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Assessment!</Text>
-    </View>
-  );
-}
+import AssessmentNavigator from '../stack/AssessmentNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -86,7 +79,11 @@ function TabNavigation() {
         component={HomeNavigator}
         options={{headerShown: false, title: 'Home'}}
       />
-      <Tab.Screen name="Assessment" component={AssessmentScreen} />
+      <Tab.Screen
+        name="Assessment"
+        component={AssessmentNavigator}
+        options={{headerShown: false}}
+      />
       <Tab.Screen
         name="Chat"
         component={ChatNavigator}
