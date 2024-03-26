@@ -58,8 +58,10 @@ const Login = ({navigation}) => {
         touched={formik.touched.email}
       />
       <TextInput
+        activeOutlineColor="#000"
         label={'Password'}
         mode="outlined"
+        contentStyle={{color: '#000'}}
         value={formik.values.password}
         onChangeText={formik.handleChange('password')}
         onBlur={formik.handleBlur('password')}
@@ -96,7 +98,7 @@ const Login = ({navigation}) => {
       <Button
         mode="contained"
         style={styles.button}
-        labelStyle={{fontFamily: 'Poppins-Medium', fontSize: 18}}
+        labelStyle={{fontFamily: 'Poppins-Medium', fontSize: 18, color: '#fff'}}
         onPress={formik.handleSubmit}>
         Login
       </Button>
@@ -143,6 +145,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Poppins-Bold',
     marginBottom: 12,
+    color: '#000',
   },
   label: {
     color: '#333',

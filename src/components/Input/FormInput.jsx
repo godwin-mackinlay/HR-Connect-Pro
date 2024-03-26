@@ -14,8 +14,10 @@ const FormInput = ({
   return (
     <>
       <TextInput
+        activeOutlineColor="#000"
         label={label}
         mode="outlined"
+        contentStyle={{color: '#000'}}
         value={value}
         onChangeText={onChangeText}
         onBlur={onBlur}
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Regular',
     backgroundColor: '#fff',
+    color: '#000',
   },
   inputIcon: {
     marginLeft: -16,

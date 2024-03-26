@@ -1,6 +1,6 @@
 [
   {
-    "id": "",
+    "_id": "",
     "username": "",
     "email": "",
     "mobile": "", 
@@ -10,7 +10,10 @@
     "state": "",
     "country": "",
     "address": "", 
-    "resume": "http://"
+    "resume": "http://",
+    "education": [],
+    "experience": [],
+    "isActive": true
   },
   {
     "id": "user_2",

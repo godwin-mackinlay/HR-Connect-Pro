@@ -22,15 +22,18 @@ import {FieldArray, Formik} from 'formik';
 import * as Yup from 'yup';
 import KeyboardView from '../../components/Container/TabView';
 import BackHeader from '../../components/Header/BackHeader';
+import ScreenView from '../../components/Container/ScreenView';
+import {DateFormat} from '../../utils/dateTime';
+import FormView from '../../components/Container/FormView';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   date: Yup.string().required('Date is required'),
 });
 
-const Education = ({navigation}) => {
-  const [text, setText] = React.useState('');
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+const Education = ({navigation, registerForm}) => {
+  const [isStart, setIsStart] = useState(false);
+  const [isEnd, setIsEnd] = useState(false);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -40,60 +43,72 @@ const Education = ({navigation}) => {
     });
   }, [navigation]);
 
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
+  const startDatePicker = () => {
+    setIsStart(true);
+  };
+
+  const endDatePicker = () => {
+    setIsEnd(true);
   };
 
   const hideDatePicker = () => {
-    setDatePickerVisibility(false);
+    setIsStart(false);
+    setIsEnd(false);
   };
-
-  const handleConfirm = date => {
-    console.warn('A date has been picked: ', date);
-    hideDatePicker();
-  };
-  const [value, setValue] = React.useState('first');
-  // const [value, setValue] = useState('first');
 
   return (
-    <KeyboardView style={styles.container}>
+    <FormView style={styles.container}>
       <Formik
         initialValues={{
-          notes: [
+          education: [
             {
-              education: '',
-              startData: '',
-              endDate: '',
+              qualifation: '',
+              startData: new Date(),
+              endDate: new Date(),
               eduType: '',
               clg: '',
               percentage: 0,
             },
           ],
         }}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={async (values, {resetForm}) => {
-          console.log(values);
-          await resetForm({values: ''});
+          let allData = {
+            registerForm,
+            ...values,
+          };
+          console.log(allData);
+          // await resetForm({values: ''});
         }}>
         {({
           values,
           handleChange,
           handleBlur,
+          setFieldValue,
           isValid,
           handleSubmit,
           errors,
           touched,
         }) => (
-          <FieldArray name="notes">
+          <FieldArray name="education">
             {({push, remove}) => (
               <>
                 <Button
                   mode="contained"
                   style={styles.viewButton1}
-                  onPress={() => push({note: ''})}>
+                  onPress={() =>
+                    push({
+                      qualifation: '',
+                      startData: new Date(),
+                      endDate: new Date(),
+                      eduType: '',
+                      clg: '',
+                      percentage: 0,
+                    })
+                  }>
                   <Text style={styles.buttonText}>Add</Text>
                 </Button>
-                {values.notes.map((item, i) => (
+                {values.education.map((item, i) => (
                   <Card
                     key={i}
                     style={{
@@ -111,8 +126,8 @@ const Education = ({navigation}) => {
                       label={<Text style={styles.label}>Education</Text>}
                       mode="outlined"
                       value={item.education}
-                      onChangeText={handleChange(`notes[${i}].education`)}
-                      onBlur={handleBlur(`notes[${i}].education`)}
+                      onChangeText={handleChange(`education[${i}].qualifation`)}
+                      onBlur={handleBlur(`education[${i}].qualifation`)}
                       style={styles.bodyInput}
                       outlineStyle={{borderRadius: 30}}
                     />
@@ -120,36 +135,57 @@ const Education = ({navigation}) => {
                       Duration:
                     </Text>
                     <View style={styles.date}>
-                      <Button title="Show Date Picker" onPress={showDatePicker}>
+                      <Button
+                        title="Show Date Picker"
+                        onPress={startDatePicker}>
                         <FontAwesome5
                           name="calendar-alt"
                           size={20}
                           color="#000"
                         />
-                        <Text style={styles.calanderText}> Start Date </Text>
+                        <Text style={styles.calanderText}>
+                          {' '}
+                          {DateFormat(item.startData) === DateFormat(new Date())
+                            ? ' Start Date'
+                            : DateFormat(item.startData)}
+                        </Text>
                       </Button>
                       <DateTimePickerModal
-                        isVisible={isDatePickerVisible}
+                        isVisible={isStart}
                         mode="date"
-                        onConfirm={handleConfirm}
+                        date={item.startData}
+                        onConfirm={newDate => {
+                          hideDatePicker();
+                          setFieldValue(`education[${i}].startData`, newDate);
+                        }}
                         onCancel={hideDatePicker}
                       />
 
                       <Button
                         title="Show Date Picker"
-                        onPress={showDatePicker}
+                        onPress={endDatePicker}
                         mode="text">
                         <FontAwesome5
                           name="calendar-alt"
                           size={20}
                           color="#000"
                         />
-                        <Text style={styles.calanderText}> End Date </Text>
+                        <Text style={styles.calanderText}>
+                          {' '}
+                          {DateFormat(item.endDate) === DateFormat(new Date())
+                            ? ' End Date'
+                            : DateFormat(item.endDate)}
+                        </Text>
                       </Button>
                       <DateTimePickerModal
-                        isVisible={isDatePickerVisible}
+                        isVisible={isEnd}
                         mode="date"
-                        onConfirm={handleConfirm}
+                        date={item.endDate}
+                        minimumDate={new Date(item.startData)}
+                        onConfirm={newDate => {
+                          hideDatePicker();
+                          setFieldValue(`education[${i}].endDate`, newDate);
+                        }}
                         onCancel={hideDatePicker}
                       />
                     </View>
@@ -158,12 +194,12 @@ const Education = ({navigation}) => {
                       Education Type
                     </Text>
                     <RadioButton.Group
-                      onValueChange={newValue => setValue(newValue)}
-                      value={value}>
+                      value={item.eduType}
+                      onValueChange={handleChange(`education[${i}].eduType`)}>
                       <View style={styles.radioButtonContainer}>
                         <View style={styles.radioButtonOption}>
                           <RadioButton
-                            value="first"
+                            value="Full Time"
                             color="#5E1675"
                             uncheckedColor="#5E1675"
                           />
@@ -171,7 +207,7 @@ const Education = ({navigation}) => {
                         </View>
                         <View style={styles.radioButtonOption}>
                           <RadioButton
-                            value="secound"
+                            value="Part Time"
                             color="#5E1675"
                             uncheckedColor="#5E1675"
                           />
@@ -179,7 +215,7 @@ const Education = ({navigation}) => {
                         </View>
                         <View style={styles.radioButtonOption}>
                           <RadioButton
-                            value="third"
+                            value="Correspondence"
                             color="#5E1675"
                             uncheckedColor="#5E1675"
                           />
@@ -191,9 +227,12 @@ const Education = ({navigation}) => {
                       label={
                         <Text style={styles.label}>
                           College/University
-                          <Text style={styles.TextInput1}>*</Text>
+                          <Text style={styles.TextInput1}> *</Text>
                         </Text>
                       }
+                      value={item.clg}
+                      onChangeText={handleChange(`education[${i}].clg`)}
+                      onBlur={handleBlur(`education[${i}].clg`)}
                       mode="outlined"
                       style={styles.bodyInput}
                       outlineStyle={{borderRadius: 30}}
@@ -202,24 +241,30 @@ const Education = ({navigation}) => {
                       label={
                         <Text style={styles.label}>
                           Percentage/CGPA
-                          <Text style={styles.TextInput1}>*</Text>
+                          <Text style={styles.TextInput1}> *</Text>
                         </Text>
                       }
+                      value={item.percentage}
+                      onChangeText={handleChange(`education[${i}].percentage`)}
+                      onBlur={handleBlur(`education[${i}].percentage`)}
                       mode="outlined"
                       style={styles.bodyInput}
                       outlineStyle={{borderRadius: 30}}
                     />
                   </Card>
                 ))}
+                <Button
+                  mode="contained"
+                  style={styles.viewButton1}
+                  onPress={handleSubmit}>
+                  <Text style={styles.buttonText}>Save and Countinue</Text>
+                </Button>
               </>
             )}
           </FieldArray>
         )}
       </Formik>
-      <Button mode="contained" style={styles.viewButton1}>
-        <Text style={styles.buttonText}>Save and Countinue</Text>
-      </Button>
-    </KeyboardView>
+    </FormView>
   );
 };
 

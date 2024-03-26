@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     width: 250,
     textAlign: 'justify',
     fontSize: 14,
+    color: '#000',
     fontFamily: 'Poppins-Light',
   },
   content: {

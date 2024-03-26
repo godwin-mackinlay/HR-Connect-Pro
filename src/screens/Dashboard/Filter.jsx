@@ -1,12 +1,13 @@
 import {StyleSheet, View} from 'react-native';
 import {List, Text, Checkbox, Button} from 'react-native-paper';
 
-import React, {useLayoutEffect} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import BackHeader from '../../components/Header/BackHeader';
 import TabView from '../../components/Container/TabView';
 
 const Filter = ({navigation}) => {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+  const [accordion, setAccordion] = useState('1');
   useLayoutEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
@@ -15,10 +16,12 @@ const Filter = ({navigation}) => {
   }, [navigation]);
   return (
     <TabView>
-      <List.AccordionGroup expandedId={'1'}>
+      <List.AccordionGroup expandedId={accordion}>
         <List.Accordion
+          onPress={() => setAccordion('1')}
+          expanded={accordion === '1' && true}
           title="Job Type"
-          id="1"
+          id={accordion}
           style={styles.accordion}
           titleStyle={styles.title}>
           <Checkbox.Item
@@ -44,8 +47,10 @@ const Filter = ({navigation}) => {
           />
         </List.Accordion>
         <List.Accordion
+          expanded={accordion === '2' && true}
+          onPress={() => setAccordion('2')}
           title="Job Categories"
-          id="2"
+          id={accordion}
           style={styles.accordion}
           titleStyle={styles.title}>
           <Checkbox.Item
@@ -72,8 +77,10 @@ const Filter = ({navigation}) => {
         </List.Accordion>
         <View>
           <List.Accordion
+            expanded={accordion === '3' && true}
+            onPress={() => setAccordion('3')}
             title="Experience"
-            id="3"
+            id={accordion}
             style={styles.accordion}
             titleStyle={styles.title}>
             <Checkbox.Item

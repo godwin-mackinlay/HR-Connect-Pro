@@ -5,6 +5,7 @@ import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TabNavigation from './src/navigation/tab/TabNavigation';
 import {LogBox} from 'react-native';
+import {PaperProvider} from 'react-native-paper';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 function App() {

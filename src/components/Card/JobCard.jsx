@@ -6,10 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const JobCard = ({job, navigation}) => {
   return (
     <View style={styles.container}>
-      <Card
-        elevation={0}
-        style={styles.line}
-        onPress={() => navigation.navigate('Hiring', {job: job})}>
+      <Card elevation={0} style={styles.line}>
         <View style={styles.inputContainer}>
           <Image source={{uri: job.image}} style={styles.imageview} />
           <View style={styles.textView}>
@@ -31,7 +28,10 @@ const JobCard = ({job, navigation}) => {
               color="#000"
               style={styles.book}
             />
-            <Button mode="contained" style={styles.Button2}>
+            <Button
+              mode="contained"
+              style={styles.Button2}
+              onPress={() => navigation.navigate('Hiring', {job: job})}>
               Apply
             </Button>
             {/* <Button mode="" style={styles.Button1}>Save For Later</Button> */}

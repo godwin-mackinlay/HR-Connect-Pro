@@ -11,7 +11,7 @@ const ForgotPassword = ({navigation}) => {
       header: () => (
         <BackHeader navigation={navigation} title="Forgot Password" />
       ),
-      statusBarColor: '#00296B',
+      statusBarColor: '#0050D1',
     });
   }, [navigation]);
 
@@ -22,8 +22,11 @@ const ForgotPassword = ({navigation}) => {
           Please enter your email address. You will receive a link to create a
           new password.
         </Text>
-        <FormInput label="Email" value={''} />
-        <Button mode="contained" style={styles.button}>
+        <FormInput label="Email" />
+        <Button
+          mode="contained"
+          style={styles.button}
+          labelStyle={{color: '#fff'}}>
           submit
         </Button>
       </View>
@@ -62,6 +65,9 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 40,
     marginTop: 20,
-    backgroundColor: '#2358FB',
+    backgroundColor: '#0050D1',
+    padding: 4,
+    borderRadius: 30,
+    marginBottom: 12,
   },
 });

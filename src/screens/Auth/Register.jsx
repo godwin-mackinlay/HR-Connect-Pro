@@ -1,7 +1,7 @@
-import {Alert, Keyboard, StyleSheet, View} from 'react-native';
-import {Text, TextInput, Button} from 'react-native-paper';
+import {Alert, Keyboard, StyleSheet, View, Image} from 'react-native';
+import {Text, TextInput, Button, Portal, Modal} from 'react-native-paper';
 import React, {useCallback, useLayoutEffect, useState} from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {SelectList} from 'react-native-dropdown-select-list';
@@ -10,13 +10,20 @@ import BackHeader from '../../components/Header/BackHeader';
 import KeyboardView from '../../components/Container/TabView';
 import FormView from '../../components/Container/FormView';
 import {useFormik} from 'formik';
+import {DateFormat} from '../../utils/dateTime';
 
 const Register = ({navigation}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [hide, setHide] = useState(true);
-  const [selected, setSelected] = useState('');
-  const [role, setRole] = useState('');
   const [fileResponse, setFileResponse] = useState([]);
+  const [visible, setVisible] = React.useState(false);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+  }; // Add borderRadius: 10 here
 
   const formik = useFormik({
     initialValues: {
@@ -34,7 +41,7 @@ const Register = ({navigation}) => {
     // validationSchema: loginValidate,
     onSubmit: async data => {
       console.log('registerForm', data);
-      navigation.navigate('Education', {registerForm: data});
+      // navigation.navigate('Education', {registerForm: data});
     },
   });
 
@@ -61,10 +68,8 @@ const Register = ({navigation}) => {
   ];
 
   const roleData = [
-    {key: '1', value: 'User'},
-    {key: '2', value: 'Admin'},
-    {key: '3', value: 'Employee'},
-    {key: '4', value: 'Company'},
+    {key: '1', value: 'Candidate'},
+    {key: '2', value: 'Recruiter'},
   ];
 
   const showDatePicker = () => {
@@ -93,51 +98,36 @@ const Register = ({navigation}) => {
       <View style={styles.section}>
         <Text style={styles.headerText}>Create Account</Text>
         <TextInput
+          activeOutlineColor="#000"
           label="Username"
           value={formik.values.username}
           onChangeText={formik.handleChange('username')}
           onBlur={formik.handleBlur('username')}
           mode="outlined"
+          contentStyle={{color: '#000'}}
           outlineStyle={styles.input}
           style={styles.bodyInput}
         />
         <TextInput
+          activeOutlineColor="#000"
           label="Email"
           value={formik.values.email}
           onChangeText={formik.handleChange('email')}
           onBlur={formik.handleBlur('email')}
           mode="outlined"
+          contentStyle={{color: '#000'}}
           outlineStyle={styles.input}
           style={styles.bodyInput}
         />
+
         <TextInput
-          label="Password"
-          value={formik.values.password}
-          onChangeText={formik.handleChange('password')}
-          onBlur={formik.handleBlur('password')}
-          mode="outlined"
-          secureTextEntry={hide ? true : false}
-          outlineStyle={styles.input}
-          style={styles.bodyInput}
-          right={
-            <TextInput.Icon
-              onPress={() => {
-                Keyboard.dismiss();
-                setHide(!hide);
-              }}
-              icon={hide ? 'eye-off' : 'eye'}
-              size={20}
-              style={styles.inputIcon}
-              color={'#2358FB'}
-            />
-          }
-        />
-        <TextInput
+          activeOutlineColor="#000"
           label="Mobile"
           value={formik.values.mobile}
           onChangeText={formik.handleChange('mobile')}
           onBlur={formik.handleBlur('mobile')}
           mode="outlined"
+          contentStyle={{color: '#000'}}
           keyboardType="number-pad"
           outlineStyle={styles.input}
           style={styles.bodyInput}
@@ -157,14 +147,21 @@ const Register = ({navigation}) => {
             marginBottom: 12,
             borderRadius: 30,
           }}>
-          <Text>Date of Birth</Text>
+          <Text style={{color: '#000'}}>
+            {DateFormat(formik.values.dob) === DateFormat(new Date())
+              ? 'Date of Birth'
+              : DateFormat(formik.values.dob)}
+          </Text>
         </Button>
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
           date={formik.values.dob}
-          onChange={formik.handleChange('dob')}
-          onConfirm={formik.handleChange('dob')}
+          // maximumDate={new Date('2022-01-31Z00:00:00:000')}
+          onConfirm={newDate => {
+            hideDatePicker();
+            formik.setFieldValue('dob', newDate);
+          }}
           onCancel={hideDatePicker}
         />
         <SelectList
@@ -179,12 +176,14 @@ const Register = ({navigation}) => {
           save="value"
         />
         <TextInput
+          activeOutlineColor="#000"
           error={formik.errors.address && true}
           label="Address"
           value={formik.values.address}
           onChangeText={formik.handleChange('address')}
           onBlur={formik.handleBlur('address')}
           mode="outlined"
+          contentStyle={{color: '#000'}}
           outlineStyle={styles.input}
           style={styles.bodyInput}
         />
@@ -200,18 +199,45 @@ const Register = ({navigation}) => {
           save="value"
         />
         <TextInput
+          activeOutlineColor="#000"
           error={formik.errors.state && true}
           label="State"
           value={formik.values.state}
           onChangeText={formik.handleChange('state')}
           onBlur={formik.handleBlur('state')}
           mode="outlined"
+          contentStyle={{color: '#000'}}
           outlineStyle={styles.input}
           style={styles.bodyInput}
+        />
+        <TextInput
+          activeOutlineColor="#000"
+          label="Password"
+          value={formik.values.password}
+          onChangeText={formik.handleChange('password')}
+          onBlur={formik.handleBlur('password')}
+          mode="outlined"
+          contentStyle={{color: '#000'}}
+          secureTextEntry={hide ? true : false}
+          outlineStyle={styles.input}
+          style={styles.bodyInput}
+          right={
+            <TextInput.Icon
+              onPress={() => {
+                Keyboard.dismiss();
+                setHide(!hide);
+              }}
+              icon={hide ? 'eye-off' : 'eye'}
+              size={20}
+              style={styles.inputIcon}
+              color={'#2358FB'}
+            />
+          }
         />
         <Button
           icon="folder-outline"
           mode="contained"
+          labelStyle={{color: '#fff'}}
           style={[
             styles.Resume,
             {backgroundColor: fileResponse.length > 0 ? 'green' : 'black'},
@@ -233,9 +259,47 @@ const Register = ({navigation}) => {
         <Button
           mode="contained"
           style={styles.button}
-          onPress={formik.handleSubmit}>
-          Next
+          labelStyle={{color: '#fff'}}
+          // onPress={formik.handleSubmit}
+          onPress={showModal}>
+          Create Account
         </Button>
+
+        {/* modal */}
+        {/* <Portal>
+          <Modal
+            visible={visible}
+            onDismiss={hideModal}
+            contentContainerStyle={containerStyle}
+            style={styles.model}>
+            <View>
+              <View style={styles.iconContainer}>
+                <Image source={require('../../assets/images/checked.png')} />
+              </View>
+              <Text style={styles.textModel}>
+                Account created successfully. Head to your personal profile to
+                complete your stats!
+              </Text>
+              <View style={styles.Button}>
+                <Button
+                  mode="contained"
+                  labelStyle={{color: '#fff'}}
+                  style={styles.Button2}
+                  onPress={() => navigation.navigate('Login')}>
+                  Continue
+                </Button>
+              </View>
+            </View>
+          </Modal>
+        </Portal> */}
+        <View style={styles.footer}>
+          <Text style={styles.footer_inner}>Already have an account ?</Text>
+          <Text
+            style={styles.footer_btn}
+            onPress={() => navigation.navigate('Login')}>
+            Login
+          </Text>
+        </View>
       </View>
     </FormView>
   );
@@ -255,6 +319,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     padding: 15,
     fontFamily: 'Poppins-Medium',
+    color: '#000',
   },
   input: {
     borderRadius: 30,
@@ -296,5 +361,48 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     backgroundColor: '#2F2F42',
     marginBottom: 15,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 12,
+  },
+  footer_inner: {
+    color: '#000',
+    fontSize: 15,
+    fontFamily: 'Poppins-Regular',
+  },
+  footer_btn: {
+    color: '#2358FB',
+    marginLeft: 6,
+    fontSize: 15,
+    fontFamily: 'Poppins-Medium',
+  },
+  model: {
+    alignItems: 'center',
+    marginLeft: 50,
+    marginRight: 50,
+  },
+  textModel: {
+    textAlign: 'center',
+    marginTop: 10,
+    fontFamily: 'Poppins-Regular',
+    color: '#000',
+  },
+  Button: {
+    paddingTop: 15,
+  },
+  Button2: {
+    borderRadius: 10,
+    backgroundColor: 'blue',
+    color: 'white',
+    fontFamily: 'Poppins-Regular',
+  },
+  iconContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+    marginLeft: 100,
+    marginRight: 100,
+    padding: 10,
   },
 });
