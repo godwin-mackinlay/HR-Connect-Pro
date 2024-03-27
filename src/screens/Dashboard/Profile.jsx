@@ -86,7 +86,7 @@ const ProfileCard = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => navigation.navigate('SwitchRecruiter')}
             style={[styles.button, styles.buttonMargin]}>
             <FontAwesome5
               name="user-tie"

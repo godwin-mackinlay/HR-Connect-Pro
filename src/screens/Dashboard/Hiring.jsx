@@ -1,6 +1,6 @@
 import React, {useLayoutEffect} from 'react';
 import {StyleSheet, View, Image, ScrollView} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 import KeyboardView from '../../components/Container/TabView';
 import BackHeader from '../../components/Header/BackHeader';
 
@@ -42,6 +42,43 @@ function Hiring({navigation, route}) {
           </Text>
         ))}
       </View>
+      <Text style={styles.inputDes}>Salary</Text>
+      <Text variant="headlineSmall" style={styles.headLine}>
+        Salary ranges from ₹4,00,000 to ₹10,00,000 annually, depending on
+        experience and skills.
+      </Text>
+      <Text style={styles.inputDes}>Education</Text>
+      <Text variant="headlineSmall" style={styles.headLine}>
+        Education: Bachelor's degree in Graphic Design, Interaction Design, or
+        related field.
+      </Text>
+      <Text style={styles.inputDes}>Responsibilities</Text>
+      <Text variant="headlineSmall" style={styles.headLine}>
+        Create wireframes, mockups, and prototypes. Conduct user research and
+        usability testing. Ensure design consistency and provide guidance to
+        developers. Stay updated on design trends.
+      </Text>
+      <Text style={styles.inputDes}>How to apply</Text>
+      <Text variant="headlineSmall" style={styles.headLine}>
+        Submit your resume and portfolio showcasing UI/UX design skills and
+        experience.
+      </Text>
+      <Button
+        mode="contained"
+        style={styles.button}
+        labelStyle={{color: '#fff'}}
+        // onPress={formik.handleSubmit}
+      >
+        APPLY
+      </Button>
+      <Button
+        mode="outlined"
+        style={styles.outlineBtn}
+        labelStyle={{color: '#000'}}
+        // onPress={formik.handleSubmit}
+      >
+        SAVE FOR LATER
+      </Button>
     </KeyboardView>
   );
 }
@@ -105,5 +142,21 @@ const styles = StyleSheet.create({
   int: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  button: {
+    marginLeft: 12,
+    marginRight: 12,
+    backgroundColor: '#0050D1',
+    padding: 2,
+    borderRadius: 30,
+    marginBottom: 12,
+  },
+  outlineBtn: {
+    marginLeft: 12,
+    marginRight: 12,
+    backgroundColor: '#fff',
+    padding: 2,
+    borderRadius: 30,
+    marginBottom: 12,
   },
 });
