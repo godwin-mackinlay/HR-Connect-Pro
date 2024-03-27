@@ -14,7 +14,7 @@ const AuthNavigator = () => {
   return (
     <AuthStack.Navigator
       screenOptions={{headerShown: false, statusBarColor: '#0050D1'}}>
-      {/* <AuthStack.Screen name="Welcome" component={Welcome} />
+      <AuthStack.Screen name="Welcome" component={Welcome} />
       <AuthStack.Screen name="Login" component={Login} />
       <AuthStack.Screen
         name="Register"
@@ -40,7 +40,7 @@ const AuthNavigator = () => {
         name="SwitchRecruiter"
         component={SwitchRecruiter}
         options={{headerShown: true}}
-      /> */}
+      />
       <AuthStack.Screen
         name="tab"
         component={TabNavigation}
