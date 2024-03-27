@@ -13,7 +13,7 @@ import BackHeader from '../../components/Header/BackHeader';
 import {CommonActions} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ProfileCard = ({navigation}) => {
+const Profile = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
@@ -137,7 +137,7 @@ const ProfileCard = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => navigation.navigate('Settings')}
             style={[styles.button, styles.buttonMargin]}>
             <FontAwesome5
               name="cogs"
@@ -154,7 +154,7 @@ const ProfileCard = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => navigation.navigate('Notification')}
             style={[styles.button, styles.buttonMargin]}>
             <FontAwesome5
               name="bell"
@@ -163,6 +163,23 @@ const ProfileCard = ({navigation}) => {
               style={styles.icon}
             />
             <Text style={styles.buttonText}>Notification Settings</Text>
+            <FontAwesome5
+              name="chevron-right"
+              size={20}
+              color="#3081D0"
+              style={styles.arrowIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('About')}
+            style={[styles.button, styles.buttonMargin]}>
+            <FontAwesome5
+              name="info"
+              size={20}
+              color="#3081D0"
+              style={styles.icon}
+            />
+            <Text style={styles.buttonText}>About Us</Text>
             <FontAwesome5
               name="chevron-right"
               size={20}
@@ -261,4 +278,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileCard;
+export default Profile;

@@ -7,13 +7,14 @@ import SuccessModal from '../../components/Modal/SuccessModal';
 import ForgotPassword from '../../screens/Auth/Forgot';
 import Welcome from '../../screens/Auth/Welcome';
 import TabNavigation from '../tab/TabNavigation';
+import SwitchRecruiter from '../../screens/Recruiter/SwitchRecruiter';
 
 const AuthNavigator = () => {
   const AuthStack = createNativeStackNavigator();
   return (
     <AuthStack.Navigator
       screenOptions={{headerShown: false, statusBarColor: '#0050D1'}}>
-      <AuthStack.Screen name="Welcome" component={Welcome} />
+      {/* <AuthStack.Screen name="Welcome" component={Welcome} />
       <AuthStack.Screen name="Login" component={Login} />
       <AuthStack.Screen
         name="Register"
@@ -35,6 +36,11 @@ const AuthNavigator = () => {
         component={ForgotPassword}
         options={{headerShown: true}}
       />
+      <AuthStack.Screen
+        name="SwitchRecruiter"
+        component={SwitchRecruiter}
+        options={{headerShown: true}}
+      /> */}
       <AuthStack.Screen
         name="tab"
         component={TabNavigation}

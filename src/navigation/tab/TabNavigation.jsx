@@ -8,9 +8,10 @@ import ChatSplash from '../../screens/Chat/ChatSplash';
 import ChatBot from '../../screens/Chat/ChatBot';
 import ChatNavigator from '../stack/ChatNavigator';
 import {Button} from 'react-native-paper';
-import Profile from '../../screens/Dashboard/Profile';
+import Profile from '../../screens/Account/Profile';
 import Analysis from '../../screens/Dashboard/Analysis';
 import AssessmentNavigator from '../stack/AssessmentNavigator';
+import AccountNavigator from '../stack/AccountNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +34,7 @@ function TabNavigation() {
               : 'document-text-outline';
           } else if (route.name === 'Analysis') {
             iconName = focused ? 'analytics-outline' : 'analytics-outline';
-          } else if (route.name === 'Profile') {
+          } else if (route.name === 'Account') {
             iconName = focused ? 'person-outline' : 'person-outline';
           }
           return (
@@ -91,7 +92,11 @@ function TabNavigation() {
       />
 
       <Tab.Screen name="Analysis" component={Analysis} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Account"
+        component={AccountNavigator}
+        options={{headerShown: false}}
+      />
     </Tab.Navigator>
   );
 }
